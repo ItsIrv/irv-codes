@@ -7,7 +7,6 @@ import shapesConfig from './shapesConfig';
  * BackgroundParticles Component
  *
  * Provides a dynamic particle animation using technology icons as particles.
- * The particles move slowly, interact with user hover and click events, and avoid duplication.
  */
 export default function BackgroundParticles() {
   const [init, setInit] = useState(false);
@@ -32,10 +31,6 @@ export default function BackgroundParticles() {
         fullScreen: { enable: false },
         fpsLimit: 60,
         manualParticles: shapesConfig.map((shape) => ({
-          position: {
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-          },
           options: {
             shape: {
               type: 'image',
@@ -46,9 +41,7 @@ export default function BackgroundParticles() {
             move: {
               enable: true,
               speed: 0.5,
-              direction: 'none',
-              random: true,
-              outModes: { default: 'out' },
+              outModes: { default: 'bounce' },
             },
           },
         })),

@@ -4,6 +4,8 @@ const height = 32;
 // List of required icons with their Devicon CDN paths
 const shapesConfig = [
   { name: 'php', src: 'php-original.svg' },
+  { name: 'composer', src: 'composer-original.svg' },
+  { name: 'symfony', src: 'symfony-original.svg' },
   { name: 'javascript', src: 'javascript-original.svg' },
   { name: 'typescript', src: 'typescript-original.svg' },
   { name: 'python', src: 'python-original.svg' },
@@ -16,7 +18,6 @@ const shapesConfig = [
   { name: 'nodejs', src: 'nodejs-original.svg' },
   { name: 'express', src: 'express-original.svg' },
   { name: 'tailwindcss', src: 'tailwindcss-plain.svg' },
-  { name: 'cypress', src: 'cypress-original.svg' },
   { name: 'mysql', src: 'mysql-original.svg' },
   { name: 'postgresql', src: 'postgresql-original.svg' },
   { name: 'mongodb', src: 'mongodb-original.svg' },
