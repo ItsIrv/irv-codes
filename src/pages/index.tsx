@@ -1,16 +1,19 @@
-import React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageHeader from '../components/HomepageHeader';
 
-export default function Home() {
+export default function Home(): JSX.Element {
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title='Home'
-      description='Irving Gomez - Full Stack Engineer Portfolio'
+      title={`Hello from ${siteConfig.title}`}
+      description='Description will go into a meta tag in <head />'
     >
-      <div className='bg-blue-500 text-white text-center p-8'>
-        <h1 className='text-3xl font-bold'>Welcome to My Portfolio</h1>
-        <p className='text-lg'>Styled with TailwindCSS!</p>
-      </div>
+      <HomepageHeader />
+      <main>
+        <HomepageFeatures />
+      </main>
     </Layout>
   );
 }

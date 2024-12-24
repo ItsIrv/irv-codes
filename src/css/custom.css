@@ -2,33 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+/* Map Tailwind theme colors to Docusaurus CSS variables */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Primary Colors (Lighter Blues for Light Theme) */
+  --ifm-color-primary: #457b9d; /* Steel Blue */
+  --ifm-color-primary-dark: #3d6f8b; /* Slightly darker Steel Blue */
+  --ifm-color-primary-darker: #2c5366; /* Even darker Steel Blue */
+  --ifm-color-primary-darkest: #1d3557; /* Original Navy Blue */
+  --ifm-color-primary-light: #a8dadc; /* Pale Blue */
+  --ifm-color-primary-lighter: #bde8e8; /* Lighter Pale Blue */
+  --ifm-color-primary-lightest: #d1f4f5; /* Lightest Blue */
+
+  /* Secondary Colors (Peach Orange) */
+  --ifm-color-secondary: #f4a261; /* Peach Orange */
+  --ifm-color-secondary-dark: #dc8f55; /* Slightly darker Peach Orange */
+  --ifm-color-secondary-light: #f6b278; /* Slightly lighter Peach Orange */
+
+  /* Neutral Colors (Off-white + Charcoal) */
+  --ifm-color-neutral-light: #f1faee; /* Off-white */
+  --ifm-color-neutral-dark: #343a40; /* Charcoal */
+
+  /* Additional Utility Colors */
+  --ifm-color-accent: #f4a261; /* Peach Orange (used as accent color) */
+  --ifm-color-highlight: #2a9d8f; /* Teal Green (for highlights) */
+  --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark Theme Overrides */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Primary Colors (Navy Blue remains consistent) */
+  --ifm-color-primary: #1d3557; /* Navy Blue */
+  --ifm-color-primary-dark: #16314f; /* Slightly darker Navy Blue */
+  --ifm-color-primary-darker: #102943; /* Even darker Navy */
+  --ifm-color-primary-darkest: #0a1f36; /* Darkest Navy */
+  --ifm-color-primary-light: #2a9d8f; /* Teal Green */
+  --ifm-color-primary-lighter: #3cb5a6; /* Lightened Teal Green */
+  --ifm-color-primary-lightest: #4ed1c0; /* Lightest Teal */
+
+  /* Secondary Colors */
+  --ifm-color-secondary: #f4a261; /* Peach Orange */
+  --ifm-color-secondary-dark: #dc8f55; /* Slightly darker Peach Orange */
+  --ifm-color-secondary-light: #f6b278; /* Slightly lighter Peach Orange */
+
+  /* Neutral Colors */
+  --ifm-color-neutral-light: #f1faee; /* Off-white */
+  --ifm-color-neutral-dark: #343a40; /* Charcoal */
+
+  /* Additional Utility Colors */
+  --ifm-color-accent: #f4a261; /* Peach Orange (used as accent color) */
+  --ifm-color-highlight: #2a9d8f; /* Teal Green (for highlights) */
+  --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
+}
+
+/* Add this to your CSS file */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.header-background {
+  background: linear-gradient(-45deg, #457b9d, #2a9d8f, #f4a261, #f1faee);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.navbar {
+  background-color: transparent;
+  box-shadow: none;
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
