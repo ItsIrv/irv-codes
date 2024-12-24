@@ -55,7 +55,7 @@ export default function HeaderBackground() {
           },
           modes: {
             grab: {
-              distance: 200,
+              distance: 350,
               links: { opacity: 1 },
             },
             repulse: {

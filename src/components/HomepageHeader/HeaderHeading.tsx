@@ -14,7 +14,6 @@ export default function HeaderHeading() {
       <h2 className='pb-4 text-3xl md:text-4xl lg:text-4xl font-mono font-medium'>
         Full Stack Engineer
       </h2>
-
       <div className='max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl md:text-2xl lg:text-2xl font-mono font-medium'>
         <HeaderTyping />
       </div>

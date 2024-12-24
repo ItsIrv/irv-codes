@@ -44,5 +44,7 @@ export default function HeaderTyping() {
     return () => clearTimeout(timer);
   }, [currentTagline, isDeleting, typingSpeed, loopIndex, taglines]);
 
-  return <code className='text-sm font-bold'>{currentTagline}</code>;
+  return (
+    <code className='text-sm font-bold bg-gray-600'>{currentTagline}</code>
+  );
 }

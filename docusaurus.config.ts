@@ -82,13 +82,12 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       style: 'primary',
-      title: 'Irving Gomez - Full Stack Engineer',
       logo: {
         alt: 'Irving Gomez - Full Stack Engineer Logo',
-        src: 'img/logo.svg',
+        src: 'img/favicon-96.png',
       },
       items: [
-        { to: '/skills', label: 'Skills', position: 'left' },
+        { to: '#skills', label: 'Skills', position: 'left' },
         { to: '/work', label: 'Work', position: 'left' },
         { to: '/contact', label: 'Contact', position: 'left' },
         {

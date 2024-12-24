@@ -97,3 +97,15 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
 
   backdrop-filter: blur(15px);
 }
+.navbar__item {
+  /* @apply px-4 py-2 text-neutral-light font-mono font-medium rounded-lg transition-all overflow-hidden relative; */
+}
+
+.navbar__item:hover::before {
+  @apply opacity-100;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+.navbar__item:hover {
+  @apply scale-105 shadow-lg border border-neutral-light;
+}
