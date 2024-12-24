@@ -113,3 +113,7 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
 #__docusaurus {
   @apply header-background;
 }
+
+footer.footer {
+  @apply bg-transparent;
+}

@@ -22,10 +22,6 @@ export default function HomepageHeader() {
           text='Work'
           target='#work'
         />
-        <HeaderButton
-          text='Contact'
-          target='#contact'
-        />
       </div>
     </header>
   );
