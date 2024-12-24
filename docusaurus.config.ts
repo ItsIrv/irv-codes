@@ -44,10 +44,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          // 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -55,11 +51,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          // 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -75,10 +66,6 @@ const config: Config = {
     metadata: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
     ],
-    stylesheets: [
-      'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap',
-    ],
-    // Replace with your project's social card
     image: 'img/favicon-96.png',
     navbar: {
       style: 'primary',
@@ -87,10 +74,11 @@ const config: Config = {
         src: 'img/favicon-96.png',
       },
       items: [
-        { to: '#skills', label: 'Skills', position: 'left' },
-        { to: '#work', label: 'Work', position: 'left' },
-        { to: '#about', label: 'About', position: 'left' },
-        { to: '#contact', label: 'Contact', position: 'left' },
+        { to: '/', label: 'Home', position: 'left' },
+        { to: '/skills', label: 'Skills', position: 'left' },
+        { to: '/work', label: 'Work', position: 'left' },
+        { to: '/about', label: 'About', position: 'left' },
+        { to: '/contact', label: 'Contact', position: 'left' },
         {
           label: 'Extra',
           position: 'right',
@@ -98,6 +86,7 @@ const config: Config = {
             { to: '/personals', label: 'Personals' },
             { to: '/code', label: 'Code' },
             { to: '/blog', label: 'Blog' },
+            { to: '/credits', label: 'Credits' },
           ],
         },
       ],

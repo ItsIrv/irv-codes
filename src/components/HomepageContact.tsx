@@ -11,7 +11,7 @@ export default function HomepageContact() {
       className='my-36 text-white'
     >
       <div className='container mx-auto px-6'>
-        <h2 className='text-4xl md:text-5xl font-bold text-center mb-6'>
+        <h2 className='text-4xl md:text-5xl font-bold font-serif text-center mb-6'>
           Contact
         </h2>
 

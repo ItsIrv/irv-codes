@@ -2,7 +2,7 @@ import React from 'react';
 
 const workExperience = [
   {
-    title: 'Full Stack Developer',
+    title: 'Full Stack Engineer',
     company: 'Freelance',
     description:
       'Led the development of hybrid web and mobile applications, implemented scalable cloud solutions, and optimized CI/CD pipelines.',
@@ -36,7 +36,9 @@ export default function HomepageWork() {
       id='work'
       className='container my-36 text-white'
     >
-      <h2 className='text-4xl md:text-5xl font-bold text-center mb-12'>Work</h2>
+      <h2 className='text-4xl md:text-5xl font-bold font-serif text-center mb-12'>
+        Work
+      </h2>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
         {workExperience.map((work, index) => (
@@ -44,7 +46,9 @@ export default function HomepageWork() {
             key={index}
             className='group relative bg-black/10 dark:bg-black/20 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow'
           >
-            <h3 className='text-2xl font-semibold mb-2'>{work.title}</h3>
+            <h3 className='text-2xl font-semibold font-mono mb-2'>
+              {work.title}
+            </h3>
 
             <p className='text-sm mb-1 text-neutral-light'>
               <strong>Company:</strong> {work.company}

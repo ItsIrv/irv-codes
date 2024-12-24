@@ -16,11 +16,12 @@ export default function HomepageHeader() {
       <div className='mt-6 space-x-4'>
         <HeaderButton
           text='Skills'
-          target='#skills'
+          target='/skills'
         />
+
         <HeaderButton
           text='Work'
-          target='#work'
+          target='/work'
         />
       </div>
     </header>
