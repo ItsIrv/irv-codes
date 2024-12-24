@@ -84,6 +84,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
+      style: 'primary',
       title: 'Irving Gomez - Full Stack Engineer',
       logo: {
         alt: 'Irving Gomez - Full Stack Engineer Logo',

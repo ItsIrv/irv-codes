@@ -54,7 +54,6 @@
   --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
 }
 
-/* Add this to your CSS file */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -67,8 +66,16 @@
   }
 }
 
+/* Light Theme Gradient */
 .header-background {
-  background: linear-gradient(-45deg, #457b9d, #2a9d8f, #f4a261, #f1faee);
+  background: linear-gradient(-45deg, #1d3557, #2c5366, #457b9d, #2a4963);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Dark Theme Gradient */
+[data-theme='dark'] .header-background {
+  background: linear-gradient(-45deg, #1d3557, #123957, #0a253b, #081424);
   background-size: 300% 300%;
   animation: gradientAnimation 10s ease infinite;
 }
@@ -78,6 +85,9 @@
   box-shadow: none;
   position: fixed;
   width: 100%;
-  backdrop-filter: blur(10px);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+nav.navbar.navbar--fixed-top.navbar-sidebar--show {
+  backdrop-filter: unset;
 }
