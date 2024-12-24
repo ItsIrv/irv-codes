@@ -79,7 +79,7 @@ const config: Config = {
       'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap',
     ],
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/favicon-96.png',
     navbar: {
       style: 'primary',
       logo: {
@@ -88,11 +88,12 @@ const config: Config = {
       },
       items: [
         { to: '#skills', label: 'Skills', position: 'left' },
-        { to: '/work', label: 'Work', position: 'left' },
-        { to: '/contact', label: 'Contact', position: 'left' },
+        { to: '#work', label: 'Work', position: 'left' },
+        { to: '#about', label: 'About', position: 'left' },
+        { to: '#contact', label: 'Contact', position: 'left' },
         {
           label: 'Extra',
-          position: 'left',
+          position: 'right',
           items: [
             { to: '/personals', label: 'Personals' },
             { to: '/code', label: 'Code' },

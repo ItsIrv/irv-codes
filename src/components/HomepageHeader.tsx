@@ -8,7 +8,7 @@ import HeaderTyping from './HomepageHeader/HeaderTyping';
  */
 export default function HomepageHeader() {
   return (
-    <header className='header-background relative flex flex-col items-center justify-center h-screen text-neutral-light'>
+    <header className='relative flex flex-col items-center justify-center h-screen text-neutral-light'>
       <HeaderBackground />
 
       <HeaderHeading />

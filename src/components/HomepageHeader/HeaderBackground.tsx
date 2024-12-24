@@ -25,7 +25,7 @@ export default function HeaderBackground() {
   return init ? (
     <Particles
       id='tsparticles'
-      className='absolute w-full h-full bg-transparent'
+      className='absolute w-full h-screen bg-transparent'
       options={{
         detectRetina: true,
         fullScreen: { enable: false },

@@ -109,3 +109,7 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
 .navbar__item:hover {
   @apply scale-105 shadow-lg border border-neutral-light;
 }
+
+#__docusaurus {
+  @apply header-background;
+}
