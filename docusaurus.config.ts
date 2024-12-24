@@ -15,13 +15,13 @@ const config: Config = {
   organizationName: 'ItsIrv',
   projectName: 'irv.codes',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
 
-  // i18n: {
-  //   defaultLocale: 'en',
-  //   locales: ['en', 'es'],
-  // },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+  },
 
   plugins: [
     async function tailwindPlugin(context) {

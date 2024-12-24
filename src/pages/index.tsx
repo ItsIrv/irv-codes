@@ -1,23 +1,9 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageHeader from '../components/HomepageHeader';
-import HomepageContact from '../components/HomepageContact';
-import { useEffect } from 'react';
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
-
-  useEffect(() => {
-    const navbar = document.getElementById('__docusaurus');
-
-    if (navbar) {
-      if (location.pathname === '/') {
-        navbar.classList.add('navbar-fixed');
-      } else {
-        navbar.classList.remove('navbar-fixed');
-      }
-    }
-  }, [location]);
 
   return (
     <Layout
@@ -26,10 +12,6 @@ export default function Home(): JSX.Element {
       wrapperClassName='index-page'
     >
       <HomepageHeader />
-
-      <main>
-        <HomepageContact />
-      </main>
     </Layout>
   );
 }

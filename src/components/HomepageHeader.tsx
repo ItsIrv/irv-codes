@@ -7,6 +7,18 @@ import HeaderTyping from './HomepageHeader/HeaderTyping';
  * HomepageHeader Component
  */
 export default function HomepageHeader() {
+  // useEffect(() => {
+  //   const navbar = document.getElementById('__docusaurus');
+
+  //   if (navbar) {
+  //     if (location.pathname === '/') {
+  //       navbar.classList.add('navbar-fixed');
+  //     } else {
+  //       navbar.classList.remove('navbar-fixed');
+  //     }
+  //   }
+  // }, [location]);
+
   return (
     <header className='relative flex flex-col items-center justify-center h-screen text-neutral-light'>
       <HeaderBackground />
