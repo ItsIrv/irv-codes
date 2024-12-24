@@ -7,7 +7,7 @@ export default function Home(): JSX.Element {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title='Home'
       description='Description will go into a meta tag in <head />'
       wrapperClassName='index-page'
     >
