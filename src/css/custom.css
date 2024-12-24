@@ -68,7 +68,7 @@
 
 /* Light Theme Gradient */
 .header-background {
-  background: linear-gradient(-45deg, #1d3557, #2c5366, #457b9d, #2a4963);
+  background: linear-gradient(-45deg, #1d3557, #335c71, #457b9d, #2d4c64);
   background-size: 300% 300%;
   animation: gradientAnimation 10s ease infinite;
 }

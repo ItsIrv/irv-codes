@@ -91,63 +91,24 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        { to: '/', label: 'Home', position: 'left' }, // Name, linking to home
+        { to: '/skills', label: 'Skills', position: 'left' },
+        { to: '/work', label: 'Work', position: 'left' },
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          label: 'Extra', // Parent dropdown menu
           position: 'left',
-          label: 'Tutorial',
+          items: [
+            { to: '/personals', label: 'Personals' },
+            { to: '/code', label: 'Code' },
+            { to: '/blog', label: 'Blog' },
+          ],
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        // {
-        //   href: 'https://github.com/facebook/docusaurus',
-        //   label: 'GitHub',
-        //   position: 'right',
-        // },
+        { to: '/contact', label: 'Contact', position: 'left' },
       ],
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        // {
-        //   title: 'Community',
-        //   items: [
-        //     {
-        //       label: 'Stack Overflow',
-        //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //     },
-        //     {
-        //       label: 'Discord',
-        //       href: 'https://discordapp.com/invite/docusaurus',
-        //     },
-        //     {
-        //       label: 'X',
-        //       href: 'https://x.com/docusaurus',
-        //     },
-        //   ],
-        // },
-        // {
-        //   title: 'More',
-        //   items: [
-        //     {
-        //       label: 'Blog',
-        //       to: '/blog',
-        //     },
-        //     {
-        //       label: 'GitHub',
-        //       href: 'https://github.com/facebook/docusaurus',
-        //     },
-        //   ],
-        // },
-      ],
+      links: [],
       copyright: `Copyright © ${new Date().getFullYear()} Irving Gomez.`,
     },
     prism: {
