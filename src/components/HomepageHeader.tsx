@@ -20,7 +20,7 @@ export default function HomepageHeader() {
   // }, [location]);
 
   return (
-    <header className='relative flex flex-col items-center justify-center h-screen text-neutral-light'>
+    <header className='relative flex flex-col items-center justify-center h-[calc(100vh-125px)] text-neutral-light'>
       <HeaderBackground />
 
       <HeaderHeading />

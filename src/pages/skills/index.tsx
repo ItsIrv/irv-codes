@@ -245,7 +245,7 @@ export const programmingLanguages: SkillDetails[] = [
     ],
   },
   {
-    name: 'SQL (MySQL, PostgreSQL)',
+    name: 'SQL',
     icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/mysql/mysql-original.svg',
     description:
       'SQL has been fundamental to my work in managing and optimizing relational databases, ensuring data integrity and performance for scalable applications.',
@@ -279,7 +279,7 @@ export const programmingLanguages: SkillDetails[] = [
     ],
   },
   {
-    name: 'NoSQL (MongoDB, Redis)',
+    name: 'NoSQL',
     icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/mongodb/mongodb-original.svg',
     description:
       'I’ve utilized NoSQL databases like MongoDB and Redis for real-time data handling and caching, supporting scalable and high-performance applications.',
@@ -804,8 +804,8 @@ export const toolsAndPlatforms: SkillDetails[] = [
     ],
   },
   {
-    name: 'Postman & Swagger',
-    icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/postman/postman-original.svg',
+    name: 'Swagger',
+    icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/swagger/swagger-original.svg',
     description:
       'API testing and documentation have been streamlined with tools like Postman and Swagger, enabling efficient API integrations and debugging.',
     highlights: [
@@ -832,7 +832,7 @@ export const toolsAndPlatforms: SkillDetails[] = [
 ];
 export const teamAndMethodologies: SkillDetails[] = [
   {
-    name: 'Agile (Scrum & Kanban)',
+    name: 'Agile',
     icon: '/img/favicon-96.png',
     description:
       'Agile methodologies have been a key part of my work, enabling me to collaborate effectively and deliver incremental improvements while aligning with business objectives.',
@@ -910,7 +910,7 @@ export const teamAndMethodologies: SkillDetails[] = [
     ],
   },
   {
-    name: 'Mentorship & Knowledge Sharing',
+    name: 'Mentorship',
     icon: '/img/favicon-96.png',
     description:
       'Mentorship has allowed me to share expertise, guide team members, and create a collaborative and supportive work environment.',
@@ -965,7 +965,7 @@ export const devOpsAndAutomation: SkillDetails[] = [
     ],
   },
   {
-    name: 'Monitoring & Logging (Sentry, Datadog)',
+    name: 'Monitoring & Logging',
     icon: '/img/favicon-96.png',
     description:
       'Monitoring and logging tools have been essential in maintaining system reliability, identifying issues, and optimizing application performance.',

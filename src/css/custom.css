@@ -101,12 +101,10 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
 
   backdrop-filter: blur(15px);
 }
-.navbar__item {
-  /* @apply px-4 py-2 text-neutral-light font-mono font-medium rounded-lg transition-all overflow-hidden relative; */
-}
 
 .navbar__item:hover::before {
   @apply opacity-100;
+
   animation: gradientAnimation 3s ease infinite;
 }
 
@@ -118,6 +116,18 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
   @apply header-background;
 }
 
+footer {
+  z-index: 1;
+}
+
 footer.footer {
   @apply bg-transparent text-white;
+
+  height: 60px;
+}
+
+.dropdown__link,
+.dropdown__link:hover {
+  --ifm-dropdown-link-color: white;
+  --ifm-dropdown-hover-background-color: rgba(255, 255, 255, 0.1);
 }
