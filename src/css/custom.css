@@ -93,7 +93,7 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
 }
 
 .dropdown__menu {
-  @apply bg-black/30;
+  @apply bg-black/50;
 
   backdrop-filter: blur(15px);
 }

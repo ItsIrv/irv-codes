@@ -1,17 +1,31 @@
-import BackgroundParticles from './HomepageHeader/BackgroundParticles';
+import HeaderBackground from './HomepageHeader/HeaderBackground';
+import HeaderButton from './HomepageHeader/HeaderButton';
+import HeaderHeading from './HomepageHeader/HeaderHeading';
+import HeaderTyping from './HomepageHeader/HeaderTyping';
 
+/**
+ * HomepageHeader Component
+ */
 export default function HomepageHeader() {
   return (
-    <header className='header-background relative flex items-center justify-center h-screen text-neutral-light'>
-      <BackgroundParticles />
+    <header className='header-background relative flex flex-col items-center justify-center h-screen text-neutral-light'>
+      <HeaderBackground />
 
-      <div className='max-w-lg text-center px-4 z-10 shadow-lg bg-black/30 backdrop-blur-md rounded-lg p-8'>
-        <h1 className='text-5xl font-bold md:text-6xl lg:text-7xl'>
-          Irving Gomez
-        </h1>
-        <h2 className='text-3xl font-bold md:text-4xl lg:text-5xl'>
-          Full Stack Engineer
-        </h2>
+      <HeaderHeading />
+
+      <div className='mt-6 space-x-4'>
+        <HeaderButton
+          text='Skills'
+          target='#skills'
+        />
+        <HeaderButton
+          text='Work'
+          target='#work'
+        />
+        <HeaderButton
+          text='Contact'
+          target='#contact'
+        />
       </div>
     </header>
   );

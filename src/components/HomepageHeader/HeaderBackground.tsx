@@ -4,11 +4,11 @@ import { loadSlim } from '@tsparticles/slim';
 import shapesConfig from './shapesConfig';
 
 /**
- * BackgroundParticles Component
+ * HeaderBackground Component
  *
  * Provides a dynamic particle animation using technology icons as particles.
  */
-export default function BackgroundParticles() {
+export default function HeaderBackground() {
   const [init, setInit] = useState(false);
 
   /**
@@ -41,11 +41,12 @@ export default function BackgroundParticles() {
             move: {
               enable: true,
               speed: 0.5,
-              outModes: { default: 'bounce' },
+              outModes: { default: 'out' },
             },
           },
         })),
         particles: {
+          collisions: { enable: true },
           number: { value: 0 },
         },
         interactivity: {
