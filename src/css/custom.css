@@ -26,6 +26,8 @@
   --ifm-color-accent: #f4a261; /* Peach Orange (used as accent color) */
   --ifm-color-highlight: #2a9d8f; /* Teal Green (for highlights) */
   --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
+
+  --ifm-font-color-base: white;
 }
 
 /* Dark Theme Overrides */
@@ -121,13 +123,12 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
   }
 }
 
-.navbar__item {
+.navbar__item,
+.navbar__link {
   @apply font-bold rounded;
 }
 
-.navbar__item:hover,
-.dropdown__link:hover {
-  @apply shadow-sm scale-105;
+.teal-hover {
   color: var(--ifm-color-neutral-light);
   background-image: linear-gradient(
     to right,
@@ -138,6 +139,21 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
   background-position: 100% 50%;
   transition: transform 0.3s ease, background-position 0.3s ease,
     color 0.3s ease;
+}
+
+.navbar__item:hover,
+.dropdown__link:hover,
+.toggle_vylO:hover {
+  @apply shadow-sm scale-105 teal-hover;
+}
+
+.toggle_vylO {
+  @apply rounded;
+}
+
+.clean-btn,
+.clean-btn:hover {
+  background: transparent !important;
 }
 
 .dropdown__menu {
@@ -158,4 +174,8 @@ footer.footer {
   @apply bg-transparent text-white;
 
   height: 60px;
+}
+
+/* blog container */
+.container.margin-vert--lg {
 }

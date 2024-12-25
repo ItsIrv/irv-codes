@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '@site/src/components/Modal';
 import { WorkDetails } from '@site/src/models/WorkDetails';
 
 interface WorkModalProps {
@@ -8,70 +9,89 @@ interface WorkModalProps {
 }
 
 /**
- * A modal component that displays the details of a work experience.
+ * A modernized modal component for displaying detailed work experience information.
  */
-const WorkModal: React.FC<WorkModalProps> = ({ isVisible, onClose, work }) => {
+export default function WorkModal({
+  isVisible,
+  onClose,
+  work,
+}: WorkModalProps) {
   if (!work) return null;
 
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-start justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}
+    <Modal
+      isVisible={isVisible}
+      onClose={onClose}
+      title={work.title}
     >
-      <div
-        className={`relative m-6 bg-white dark:bg-neutral-900 p-8 rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto transition-transform duration-300 ${
-          isVisible
-            ? 'opacity-100 translate-y-0 scale-100'
-            : 'opacity-0 translate-y-10 scale-95'
-        }`}
-      >
-        <button
-          className='absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-transform transform hover:scale-110'
-          onClick={onClose}
-        >
-          &times;
-        </button>
-        <h2 className='text-2xl font-extrabold mb-4 text-neutral-800 dark:text-neutral-100'>
-          {work.title}
-        </h2>
-        <p className='text-sm mb-4 text-neutral-600 dark:text-neutral-300'>
-          <strong>Company:</strong> {work.company}
-        </p>
-        <p className='text-sm mb-4 text-neutral-600 dark:text-neutral-300'>
-          <strong>Period:</strong> {work.timePeriod}
-        </p>
-        <p className='text-sm mb-6 text-neutral-600 dark:text-neutral-300 leading-relaxed'>
-          {work.description}
-        </p>
-        <div className='mb-6'>
-          <h3 className='text-lg font-bold mb-2 text-primary-dark dark:text-primary-light'>
-            Responsibilities
-          </h3>
-          <ul className='list-disc list-inside text-sm text-neutral-700 dark:text-neutral-300 space-y-2'>
-            {work.responsibilities.map((resp, idx) => (
-              <li key={idx}>{resp}</li>
-            ))}
-          </ul>
-        </div>
+      <div className='space-y-8'>
+        {/* Company and Time Period */}
         <div>
-          <h3 className='text-lg font-bold mb-2 text-primary-dark dark:text-primary-light'>
-            Technologies Used
-          </h3>
-          <div className='flex flex-wrap gap-2'>
-            {work.technologies.map((tech, idx) => (
-              <span
-                key={idx}
-                className='px-2 py-1 text-xs font-medium bg-black/10 dark:bg-black/20 rounded-full'
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          <p className='text-base text-neutral-700 dark:text-neutral-300'>
+            <strong className='text-primary dark:text-primary-light'>
+              Company:
+            </strong>{' '}
+            {work.company}
+          </p>
+          <p className='text-base text-neutral-700 dark:text-neutral-300'>
+            <strong className='text-secondary dark:text-secondary-light'>
+              Period:
+            </strong>{' '}
+            {work.timePeriod}
+          </p>
         </div>
-      </div>
-    </div>
-  );
-};
 
-export default WorkModal;
+        {/* Description */}
+        <div>
+          <p className='text-base text-neutral-700 dark:text-neutral-300 leading-relaxed max-w-3xl mx-auto'>
+            {work.description}
+          </p>
+        </div>
+
+        {/* Responsibilities */}
+        {work.responsibilities && work.responsibilities.length > 0 && (
+          <div>
+            <h3 className='text-xl font-semibold text-accent dark:text-accent-light mb-4'>
+              Responsibilities
+            </h3>
+            <ul className='list-disc list-inside space-y-3 text-neutral-700 dark:text-neutral-300'>
+              {work.responsibilities.map((resp, idx) => (
+                <li
+                  key={idx}
+                  className='text-sm leading-relaxed'
+                >
+                  {resp}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Technologies Used */}
+        {work.technologies && work.technologies.length > 0 && (
+          <div>
+            <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
+              Technologies Used
+            </h3>
+            <ul className='space-y-4 text-neutral-700 dark:text-neutral-300'>
+              {work.technologies.map((tech, idx) => (
+                <li
+                  key={idx}
+                  className='border-b border-neutral-200 dark:border-neutral-800 pb-2'
+                >
+                  <strong className='text-primary dark:text-primary-light'>
+                    {tech}
+                  </strong>
+                  <p className='text-sm leading-relaxed mt-1'>
+                    {/* Placeholder for description. Replace with actual content. */}
+                    Details about how {tech} was used in this role will go here.
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </Modal>
+  );
+}

@@ -62,6 +62,13 @@ const config: Config = {
     ],
   ],
 
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&family=Fira+Code:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap',
+      type: 'text/css',
+    },
+  ],
+
   themeConfig: {
     metadata: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },

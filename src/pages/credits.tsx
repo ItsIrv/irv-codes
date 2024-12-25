@@ -25,7 +25,7 @@ export default function CreditsPage() {
                 href='https://docusaurus.io'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-blue-500 hover:underline'
+                className='text-accent hover:underline'
               >
                 Docusaurus
               </a>
@@ -38,7 +38,7 @@ export default function CreditsPage() {
                 href='https://vercel.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-blue-500 hover:underline'
+                className='text-accent hover:underline'
               >
                 Vercel
               </a>
@@ -51,7 +51,7 @@ export default function CreditsPage() {
                 href='https://github.com/matteobruni/tsparticles'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-blue-500 hover:underline'
+                className='text-accent hover:underline'
               >
                 tsparticles
               </a>

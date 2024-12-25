@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
@@ -7,6 +9,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...fontFamily.sans], // Clean and modern sans-serif
+        serif: ['Merriweather', ...fontFamily.serif], // Elegant serif for headers
+        mono: ['Fira Code', ...fontFamily.mono], // Developer-friendly monospaced font
+        display: ['Playfair Display', ...fontFamily.sans], // For impactful titles
+        body: ['Roboto', ...fontFamily.sans], // Readable font for body text
+      },
       colors: {
         primary: {
           DEFAULT: '#457b9d', // Steel Blue for light theme
