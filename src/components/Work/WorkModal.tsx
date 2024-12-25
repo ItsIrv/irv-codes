@@ -22,28 +22,24 @@ export default function WorkModal({
     <Modal
       isVisible={isVisible}
       onClose={onClose}
-      title={work.title}
     >
-      <div className='space-y-8'>
-        {/* Company and Time Period */}
-        <div>
-          <p className='text-base text-neutral-700 dark:text-neutral-300'>
-            <strong className='text-primary dark:text-primary-light'>
-              Company:
-            </strong>{' '}
+      <div className='space-y-8 font-body text-neutral-800 dark:text-neutral-200'>
+        {/* Header Section */}
+        <div className='border-b pb-4'>
+          <h2 className='text-2xl font-display text-primary dark:text-primary-light'>
+            {work.title}
+          </h2>
+          <p className='text-lg text-secondary dark:text-secondary-light mt-2'>
             {work.company}
           </p>
-          <p className='text-base text-neutral-700 dark:text-neutral-300'>
-            <strong className='text-secondary dark:text-secondary-light'>
-              Period:
-            </strong>{' '}
+          <p className='text-neutral-600 dark:text-neutral-400'>
             {work.timePeriod}
           </p>
         </div>
 
         {/* Description */}
         <div>
-          <p className='text-base text-neutral-700 dark:text-neutral-300 leading-relaxed max-w-3xl mx-auto'>
+          <p className='text-base leading-relaxed max-w-3xl mx-auto'>
             {work.description}
           </p>
         </div>
@@ -54,11 +50,11 @@ export default function WorkModal({
             <h3 className='text-xl font-semibold text-accent dark:text-accent-light mb-4'>
               Responsibilities
             </h3>
-            <ul className='list-disc list-inside space-y-3 text-neutral-700 dark:text-neutral-300'>
+            <ul className='list-disc list-inside space-y-3'>
               {work.responsibilities.map((resp, idx) => (
                 <li
                   key={idx}
-                  className='text-sm leading-relaxed'
+                  className='leading-relaxed'
                 >
                   {resp}
                 </li>
@@ -73,24 +69,113 @@ export default function WorkModal({
             <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
               Technologies Used
             </h3>
-            <ul className='space-y-4 text-neutral-700 dark:text-neutral-300'>
+            <div className='space-y-6'>
               {work.technologies.map((tech, idx) => (
+                <div
+                  key={idx}
+                  className='border rounded-md p-4 bg-neutral-50 dark:bg-neutral-800 shadow-sm'
+                >
+                  <h4 className='text-lg font-primary text-primary dark:text-primary-light'>
+                    {tech.name}
+                  </h4>
+                  <p className='text-neutral-700 dark:text-neutral-300 mt-2'>
+                    {tech.description}
+                  </p>
+                  {tech.impact && (
+                    <ul className='list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400'>
+                      {tech.impact.map((impact, idx) => (
+                        <li key={idx}>{impact}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Key Achievements */}
+        {work.keyAchievements && work.keyAchievements.length > 0 && (
+          <div>
+            <h3 className='text-2xl font-semibold text-accent dark:text-accent-light mb-4'>
+              Key Achievements
+            </h3>
+            <ul className='space-y-4'>
+              {work.keyAchievements.map((achievement, idx) => (
                 <li
                   key={idx}
-                  className='border-b border-neutral-200 dark:border-neutral-800 pb-2'
+                  className='text-lg leading-relaxed border-l-4 border-accent pl-4'
                 >
-                  <strong className='text-primary dark:text-primary-light'>
-                    {tech}
-                  </strong>
-                  <p className='text-sm leading-relaxed mt-1'>
-                    {/* Placeholder for description. Replace with actual content. */}
-                    Details about how {tech} was used in this role will go here.
-                  </p>
+                  {achievement}
                 </li>
               ))}
             </ul>
           </div>
         )}
+
+        {/* Challenges & Solutions */}
+        {work.challengesAndSolutions &&
+          work.challengesAndSolutions.length > 0 && (
+            <div>
+              <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
+                Challenges & Solutions
+              </h3>
+              <div className='space-y-6'>
+                {work.challengesAndSolutions.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className='grid grid-cols-1 md:grid-cols-2 gap-4 border rounded-lg p-4 bg-neutral-50 dark:bg-neutral-800 shadow-sm'
+                  >
+                    <div className='p-4 bg-accent/10 dark:bg-accent-light/10 rounded-lg'>
+                      <h4 className='text-lg font-semibold text-accent dark:text-accent-light mb-2'>
+                        Challenge
+                      </h4>
+                      <p className='text-neutral-800 dark:text-neutral-200 leading-relaxed'>
+                        {item.challenge}
+                      </p>
+                    </div>
+                    <div className='p-4 bg-primary/10 dark:bg-primary-light/10 rounded-lg'>
+                      <h4 className='text-lg font-semibold text-primary dark:text-primary-light mb-2'>
+                        Solution
+                      </h4>
+                      <p className='text-neutral-800 dark:text-neutral-200 leading-relaxed'>
+                        {item.solution}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+        {/* Projects */}
+        {work.projectsOrInitiatives &&
+          work.projectsOrInitiatives.length > 0 && (
+            <div>
+              <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
+                Projects & Initiatives
+              </h3>
+              <div className='space-y-6'>
+                {work.projectsOrInitiatives.map((project, idx) => (
+                  <div
+                    key={idx}
+                    className='border rounded-md p-4 bg-neutral-50 dark:bg-neutral-800 shadow-sm'
+                  >
+                    <h4 className='text-lg font-serif text-secondary dark:text-secondary-light'>
+                      {project.name}
+                    </h4>
+                    <p className='mt-2'>{project.description}</p>
+                    <p className=' mt-1'>
+                      <strong>Role:</strong> {project.role}
+                    </p>
+                    <p className=' mt-1'>
+                      <strong>Impact:</strong> {project.impact.join(', ')}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
       </div>
     </Modal>
   );

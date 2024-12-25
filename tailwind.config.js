@@ -10,11 +10,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans], // Clean and modern sans-serif
-        serif: ['Merriweather', ...fontFamily.serif], // Elegant serif for headers
-        mono: ['Fira Code', ...fontFamily.mono], // Developer-friendly monospaced font
-        display: ['Playfair Display', ...fontFamily.sans], // For impactful titles
-        body: ['Roboto', ...fontFamily.sans], // Readable font for body text
+        sans: ['Nunito', ...fontFamily.sans], // Modern and clean sans-serif
+        serif: ['Lora', ...fontFamily.serif], // Elegant but readable serif
+        mono: ['JetBrains Mono', ...fontFamily.mono], // Developer-friendly monospaced font
+        display: ['Source Sans Pro', ...fontFamily.sans], // For impactful titles
+        body: ['Open Sans', ...fontFamily.sans], // Highly readable for body text
       },
       colors: {
         primary: {

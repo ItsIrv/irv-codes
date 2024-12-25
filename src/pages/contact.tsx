@@ -10,15 +10,28 @@ export default function ContactPage() {
       title='Contact'
       description='Get in touch with me.'
     >
-      <main className='container mx-auto my-12'>
-        <section
-          id='contact'
-          className='my-36 text-white'
-        >
+      <main className='container mx-auto mt-12'>
+        <section id='contact'>
           <div className='container mx-auto px-6'>
             <h2 className='text-4xl md:text-5xl font-bold font-serif text-center mb-6'>
               Contact
             </h2>
+
+            <div className='bg-black/20 rounded p-6 max-w-lg mx-auto mb-12'>
+              <p className='text-lg md:text-xl font-body text-center text-neutral-light'>
+                Whether you want to collaborate, share an exciting opportunity,
+                or just say hello, I’d love to hear from you. Use the form below
+                or reach out directly via email or{' '}
+                <a
+                  className='text-accent hover:text-accent-light hover:underline dark:text-accent-light'
+                  href='https://linkedin.com/in/itsirv'
+                  target='_blank'
+                >
+                  LinkedIn
+                </a>
+                . Let’s create and deploy.
+              </p>
+            </div>
 
             <div className='max-w-xl mx-auto'>
               {/* Input fields for aesthetic purposes */}

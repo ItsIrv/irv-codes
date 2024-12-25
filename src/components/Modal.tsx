@@ -89,7 +89,7 @@ export default function Modal({
           bg-white dark:backdrop-blur-sm dark:bg-neutral-900 
           rounded-lg shadow-2xl
           w-[90vw] md:w-[min(90vw,700px)] lg:w-[min(80vw,700px)]
-          h-[85vh] 
+          h-[85%]
           overflow-y-auto 
           p-4 md:p-6 lg:p-8
           mt-0 md:mt-4 lg:mt-8

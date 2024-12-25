@@ -64,7 +64,7 @@ const config: Config = {
 
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&family=Fira+Code:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Lora:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Open+Sans:wght@400;700&display=swap',
       type: 'text/css',
     },
   ],

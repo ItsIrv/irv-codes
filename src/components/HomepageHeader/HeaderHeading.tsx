@@ -7,6 +7,14 @@ import HeaderTyping from './HeaderTyping';
 export default function HeaderHeading() {
   return (
     <div className='max-w-xl w-[95%] text-center px-4 shadow-lg bg-black/50 backdrop-blur-md rounded-lg p-8'>
+      <img
+        src='/img/me.jpg'
+        alt='Its a -- meeee'
+        className='rounded-full mx-auto mb-4'
+        width={96}
+        height={96}
+      />
+
       <h1 className='pb-4 text-5xl md:text-6xl lg:text-7xl font-sans font-bold'>
         Irving Gomez
       </h1>
