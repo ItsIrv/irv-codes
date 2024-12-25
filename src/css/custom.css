@@ -5,7 +5,7 @@
 /* Map Tailwind theme colors to Docusaurus CSS variables */
 :root {
   /* Primary Colors (Lighter Blues for Light Theme) */
-  --ifm-color-primary: #457b9d; /* Steel Blue */
+  --ifm-color-primary: #2a86bf; /* Steel Blue */
   --ifm-color-primary-dark: #3d6f8b; /* Slightly darker Steel Blue */
   --ifm-color-primary-darker: #2c5366; /* Even darker Steel Blue */
   --ifm-color-primary-darkest: #1d3557; /* Original Navy Blue */
@@ -49,7 +49,7 @@
   --ifm-color-neutral-dark: #343a40; /* Charcoal */
 
   /* Additional Utility Colors */
-  --ifm-color-accent: #f4a261; /* Peach Orange (used as accent color) */
+  --ifm-color-accent: #f5c518; /* Peach Orange (used as accent color) */
   --ifm-color-highlight: #2a9d8f; /* Teal Green (for highlights) */
   --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
 }
@@ -66,9 +66,13 @@
   }
 }
 
+#__docusaurus {
+  @apply header-background;
+}
+
 /* Light Theme Gradient */
 .header-background {
-  background: linear-gradient(-45deg, #1d3557, #335c71, #457b9d, #2d4c64);
+  background: linear-gradient(-45deg, #4060aa, #3d79b5, #409dd7, #385871);
   background-size: 300% 300%;
   animation: gradientAnimation 10s ease infinite;
 }
@@ -87,19 +91,19 @@
 }
 
 .navbar {
-  z-index: 1;
-  background-color: transparent;
-  backdrop-filter: blur(5px);
+  @apply font-bold backdrop-blur-sm bg-transparent z-30;
+}
+
+.navbar__brand {
+  @apply m-0;
 }
 
 nav.navbar.navbar--fixed-top.navbar-sidebar--show {
-  backdrop-filter: unset;
+  @apply backdrop-blur-none;
 }
 
-.dropdown__menu {
-  @apply bg-black/50;
-
-  backdrop-filter: blur(15px);
+.navbar__items {
+  @apply justify-between lg:justify-normal;
 }
 
 .navbar__item:hover::before {
@@ -108,12 +112,42 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
   animation: gradientAnimation 3s ease infinite;
 }
 
-.navbar__item:hover {
-  @apply scale-105 shadow-lg border border-neutral-light;
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
-#__docusaurus {
-  @apply header-background;
+.navbar__item {
+  @apply font-bold rounded;
+}
+
+.navbar__item:hover,
+.dropdown__link:hover {
+  @apply shadow-sm scale-105;
+  color: var(--ifm-color-neutral-light);
+  background-image: linear-gradient(
+    to right,
+    rgba(59, 130, 246, 0.8),
+    rgba(20, 184, 166, 0.8)
+  );
+  background-size: 200% 200%;
+  background-position: 100% 50%;
+  transition: transform 0.3s ease, background-position 0.3s ease,
+    color 0.3s ease;
+}
+
+.dropdown__menu {
+  @apply bg-black/50 backdrop-blur-sm font-bold;
+}
+
+.dropdown__link,
+.dropdown__link:hover {
+  --ifm-dropdown-link-color: white;
+  --ifm-dropdown-hover-background-color: var(--ifm-color-primary);
 }
 
 footer {
@@ -124,10 +158,4 @@ footer.footer {
   @apply bg-transparent text-white;
 
   height: 60px;
-}
-
-.dropdown__link,
-.dropdown__link:hover {
-  --ifm-dropdown-link-color: white;
-  --ifm-dropdown-hover-background-color: rgba(255, 255, 255, 0.1);
 }

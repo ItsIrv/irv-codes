@@ -41,10 +41,13 @@ export default function HeaderTyping() {
     };
 
     const timer = setTimeout(handleTyping, typingSpeed);
+
     return () => clearTimeout(timer);
   }, [currentTagline, isDeleting, typingSpeed, loopIndex, taglines]);
 
   return (
-    <code className='text-sm font-bold bg-gray-600'>{currentTagline}</code>
+    <code className='text-sm font-mono font-bold bg-gray-600 overflow-hidden h-6 block'>
+      {currentTagline}
+    </code>
   );
 }

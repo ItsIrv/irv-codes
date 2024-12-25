@@ -74,7 +74,7 @@ const config: Config = {
         src: 'img/favicon-96.png',
       },
       items: [
-        { to: '/', label: 'Home', position: 'left' },
+        { to: '/', label: 'Home', position: 'left', exact: true },
         { to: '/skills', label: 'Skills', position: 'left' },
         { to: '/work', label: 'Work', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },

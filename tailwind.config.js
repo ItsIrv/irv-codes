@@ -26,7 +26,11 @@ module.exports = {
           light: '#f1faee', // Off-white
           dark: '#343a40', // Charcoal
         },
-        accent: '#f4a261', // Peach Orange
+        accent: {
+          DEFAULT: '#f5c518', // Golden Yellow for accent
+          dark: '#d4a612', // Slightly darker Golden Yellow
+          light: '#f9d83a', // Slightly lighter Golden Yellow
+        },
         highlight: '#2a9d8f', // Teal Green
         muted: '#7b8a91', // Muted gray for secondary text
       },

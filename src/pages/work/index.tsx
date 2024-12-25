@@ -132,19 +132,21 @@ export default function WorkPage() {
           {workExperience.map((work, index) => (
             <div
               key={index}
-              className='group relative bg-black/10 dark:bg-black/20 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer'
+              className='group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer'
               onClick={() => openModal(work)}
             >
               <h3 className='text-2xl font-semibold mb-2 text-neutral-100'>
                 {work.title}
               </h3>
-              <p className='text-sm mb-1 text-neutral-400'>
-                <strong>Company:</strong> {work.company}
+              <p className='text-sm mb-1 text-white'>
+                <strong className='text-secondary-light'>Company:</strong>{' '}
+                {work.company}
               </p>
-              <p className='text-sm mb-4 text-neutral-400'>
-                <strong>Period:</strong> {work.timePeriod}
+              <p className='text-sm mb-4 text-white'>
+                <strong className='text-secondary-light'>Period:</strong>{' '}
+                {work.timePeriod}
               </p>
-              <p className='text-sm text-neutral-300 leading-relaxed'>
+              <p className='text-sm text-white dark:text-gray-400 leading-relaxed'>
                 {work.description}
               </p>
               <div className='flex flex-wrap gap-2 mt-4'>
