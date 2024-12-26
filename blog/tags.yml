@@ -1,19 +1,39 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+portfolio:
+  label: Portfolio
+  permalink: /portfolio
+  description: Posts related to building and showcasing professional portfolios.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+tools:
+  label: Tools
+  permalink: /tools
+  description: Posts about tools and technologies used in development.
+
+web-development:
+  label: Web Development
+  permalink: /web-development
+  description: Insights and experiences in building web applications.
 
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
-  description: Docusaurus tag description
+  description: Tips and experiences working with Docusaurus.
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+nextjs:
+  label: Next.js
+  permalink: /nextjs
+  description: Exploring the capabilities and use cases of Next.js.
+
+react:
+  label: React
+  permalink: /react
+  description: Building responsive and dynamic interfaces with React.
+
+tailwindcss:
+  label: Tailwind CSS
+  permalink: /tailwindcss
+  description: Creating modern and consistent designs with Tailwind CSS.
+
+blogging:
+  label: Blogging
+  permalink: /blogging
+  description: Articles and insights on blogging as a developer.

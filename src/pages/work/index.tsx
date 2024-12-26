@@ -930,17 +930,30 @@ export default function WorkPage() {
       description='Explore my professional work experience in detail.'
     >
       <main className='container mx-auto my-12'>
-        <h1 className='text-4xl font-bold text-center mb-8 text-white'>
-          Work Experience
-        </h1>
-        <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {workExperience.map((work, index) => (
-            <WorkBlock
-              key={index}
-              work={work}
-              onClick={openModal}
-            />
-          ))}
+        <section>
+          <h1 className='text-4xl font-bold text-center mb-8 text-white'>
+            Work Experience
+          </h1>
+
+          <div className='bg-black/20 rounded p-6 max-w-xl mx-auto mb-12'>
+            <p className='text-lg md:text-xl font-body text-center text-neutral-light'>
+              Discover my professional journey across diverse roles and
+              industries. Each experience reflects my dedication to delivering
+              impactful solutions, fostering collaboration, and embracing
+              challenges. Dive in to see how my expertise and passion drive
+              success.
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {workExperience.map((work, index) => (
+              <WorkBlock
+                key={index}
+                work={work}
+                onClick={openModal}
+              />
+            ))}
+          </div>
         </section>
 
         <WorkModal

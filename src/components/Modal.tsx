@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ModalProps {
   isVisible: boolean;
@@ -7,36 +7,6 @@ interface ModalProps {
   title?: string;
 }
 
-/**
- * A modal component that displays a window with a title and content. The modal
- * can be closed by clicking the close button in the top right corner.
- *
- * @param {boolean} isVisible - Whether the modal should be visible or not.
- * @param {() => void} onClose - A callback function that is called when the modal
- * is closed.
- * @param {React.ReactNode} children - The content of the modal.
- * @param {string} [title] - The title of the modal.
- *
- * @example
- * import React from 'react';
- * import Modal from './Modal';
- *
- * export default function MyModal() {
- *   const [isVisible, setIsVisible] = React.useState(false);
- *
- *   return (
- *     <>
- *       <button onClick={() => setIsVisible(true)}>Show modal</button>
- *       <Modal
- *         isVisible={isVisible}
- *         onClose={() => setIsVisible(false)}
- *       >
- *         <p>This is the content of the modal.</p>
- *       </Modal>
- *     </>
- *   );
- * }
- */
 export default function Modal({
   isVisible,
   onClose,
@@ -45,6 +15,7 @@ export default function Modal({
 }: ModalProps) {
   const [rendered, setRendered] = useState(isVisible);
   const [animate, setAnimate] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isVisible) {
@@ -58,6 +29,26 @@ export default function Modal({
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
+
+  // Handle outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        onClose();
+      }
+    };
+
+    if (isVisible) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isVisible, onClose]);
 
   if (!rendered) return null;
 
@@ -84,6 +75,7 @@ export default function Modal({
 
       {/* Modal */}
       <div
+        ref={modalRef}
         className={`
           relative 
           bg-white dark:backdrop-blur-sm dark:bg-neutral-900 

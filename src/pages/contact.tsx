@@ -13,28 +13,23 @@ export default function ContactPage() {
       <main className='container mx-auto mt-12'>
         <section id='contact'>
           <div className='container mx-auto px-6'>
-            <h2 className='text-4xl md:text-5xl font-bold font-serif text-center mb-6'>
+            {/* Page Header */}
+            <h1 className='text-4xl md:text-5xl font-bold font-serif text-center mb-6'>
               Contact
-            </h2>
+            </h1>
 
-            <div className='bg-black/20 rounded p-6 max-w-lg mx-auto mb-12'>
+            {/* Intro Text */}
+            <div className='bg-black/20 rounded p-6 max-w-xl mx-auto mb-12'>
               <p className='text-lg md:text-xl font-body text-center text-neutral-light'>
                 Whether you want to collaborate, share an exciting opportunity,
                 or just say hello, I’d love to hear from you. Use the form below
-                or reach out directly via email or{' '}
-                <a
-                  className='text-accent hover:text-accent-light hover:underline dark:text-accent-light'
-                  href='https://linkedin.com/in/itsirv'
-                  target='_blank'
-                >
-                  LinkedIn
-                </a>
-                . Let’s create and deploy.
+                or connect with me directly via email or social platforms. Let’s
+                innovate and build together!
               </p>
             </div>
 
+            {/* Contact Form */}
             <div className='max-w-xl mx-auto'>
-              {/* Input fields for aesthetic purposes */}
               <div className='space-y-6'>
                 <input
                   type='text'
@@ -47,8 +42,6 @@ export default function ContactPage() {
                   rows={5}
                 ></textarea>
               </div>
-
-              {/* Mailto Button */}
               <div className='text-center mt-6'>
                 <a
                   href='mailto:gomirv.work@gmail.com?subject=Contact%20Request&body=Hi%20Irving%2C%0A%0AI%20would%20like%20to%20reach%20out%20regarding...'
@@ -57,7 +50,30 @@ export default function ContactPage() {
                 text-neutral-light hover:scale-105 hover:text-white hover:from-blue-500/80 hover:to-teal-500/80
                  dark:hover:from-blue-500/80 dark:hover:to-teal-500/80'
                 >
-                  <span className='relative'>Send Email</span>
+                  Send Email
+                </a>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className='mt-12 text-center'>
+              <h2 className='text-2xl font-bold font-mono text-neutral-light mb-4'>
+                Connect with Me
+              </h2>
+              <div className='flex justify-center space-x-6'>
+                <a
+                  href='https://linkedin.com/in/itsirv'
+                  target='_blank'
+                  className='text-neutral-light hover:text-blue-400 text-xl transition-transform transform hover:scale-110'
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href='https://github.com/itsirv'
+                  target='_blank'
+                  className='text-neutral-light hover:text-gray-400 text-xl transition-transform transform hover:scale-110'
+                >
+                  GitHub
                 </a>
               </div>
             </div>

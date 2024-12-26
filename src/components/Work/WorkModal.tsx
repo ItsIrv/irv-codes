@@ -34,12 +34,19 @@ export default function WorkModal({
           <h2 className='text-2xl font-serif text-primary dark:text-primary-light'>
             {work.title}
           </h2>
-          <p className='text-lg text-secondary dark:text-secondary-light mt-2'>
-            {work.company}
-          </p>
-          <p className='text-neutral-600 dark:text-neutral-400'>
-            {work.timePeriod}
-          </p>
+
+          {work.company && (
+            <p className='text-lg text-secondary dark:text-secondary-light mt-2'>
+              {work.company}
+            </p>
+          )}
+
+          {work.timePeriod && (
+            <p className='text-neutral-600 dark:text-neutral-400'>
+              {work.timePeriod}
+            </p>
+          )}
+
           {/* Display Live Website Link */}
           {liveProject && (
             <p className='text-neutral-600 dark:text-neutral-400 mt-2'>

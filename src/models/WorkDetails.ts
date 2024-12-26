@@ -1,7 +1,7 @@
 export interface WorkDetails {
   title: string; // Your title (e.g., "Senior Software Engineer")
-  company: string; // The company name
-  timePeriod: string; // When you worked here
+  company?: string; // The company name
+  timePeriod?: string; // When you worked here
   description: string; // General overview of your time here
   responsibilities: string[]; // Detailed list of your tasks and responsibilities
   technologies: {
@@ -23,7 +23,7 @@ export interface WorkDetails {
   leadershipOrMentorship?: string[]; // Examples of leadership or mentoring others
   trainingOrCertificationsAcquired?: string[]; // Any new skills/certs gained here
   feedbackOrRecognition?: string[]; // Feedback, promotions, awards, or recognition
-  roleType: 'Full-Time' | 'Contract';
+  roleType: 'Full-Time' | 'Contract' | string;
   resources?: {
     type: 'repository' | 'liveProject' | 'file'; // Type of resource (e.g., repository, live project, or file)
     label: string; // Label for the resource (e.g., "GitHub Repo", "Live Site")

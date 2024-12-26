@@ -28,6 +28,7 @@
   --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
 
   --ifm-font-color-base: white;
+  --ifm-color-content-secondary: var(--ifm-color-primary-light);
 }
 
 /* Dark Theme Overrides */
@@ -178,4 +179,28 @@ footer.footer {
 
 /* blog container */
 .container.margin-vert--lg {
+}
+
+.container.margin-vert--lg .thin-scrollbar,
+.container.margin-vert--lg article,
+.pagination-nav__link {
+  @apply bg-black/20 rounded p-6;
+}
+
+.pagination-nav__link:hover {
+  @apply text-white;
+}
+
+.tag_QGVx a:hover {
+  @apply teal-hover;
+}
+
+.sidebarItemLinkActive_I1ZP,
+a.table-of-contents__link.toc-highlight.table-of-contents__link--active {
+  --ifm-color-primary: cyan;
+}
+
+.sidebarItemLinkActive_I1ZP:hover,
+a.table-of-contents__link.toc-highlight:hover {
+  --ifm-color-primary: var(--ifm-color-secondary);
 }

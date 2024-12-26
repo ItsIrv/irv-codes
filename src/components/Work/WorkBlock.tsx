@@ -4,16 +4,21 @@ import React from 'react';
 interface WorkBlockProps {
   work: WorkDetails;
   onClick: (work: WorkDetails) => void;
+  className?: string; // Add an optional className prop
 }
 
 /**
  * A WorkBlock component that displays a work experience with a title, company,
  * period, description, and role type badge.
  */
-const WorkBlock: React.FC<WorkBlockProps> = ({ work, onClick }) => {
+const WorkBlock: React.FC<WorkBlockProps> = ({
+  work,
+  onClick,
+  className = '',
+}) => {
   return (
     <div
-      className='group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer'
+      className={`group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${className}`}
       onClick={() => onClick(work)}
     >
       {/* Title */}
@@ -22,16 +27,20 @@ const WorkBlock: React.FC<WorkBlockProps> = ({ work, onClick }) => {
       </h3>
 
       {/* Company */}
-      <p className='text-sm mb-1 text-white'>
-        <strong className='text-secondary-light'>Company:</strong>{' '}
-        {work.company}
-      </p>
+      {work.company && (
+        <p className='text-sm mb-1 text-white'>
+          <strong className='text-secondary-light'>Company:</strong>{' '}
+          {work.company}
+        </p>
+      )}
 
       {/* Period */}
-      <p className='text-sm mb-1 text-white'>
-        <strong className='text-secondary-light'>Period:</strong>{' '}
-        {work.timePeriod}
-      </p>
+      {work.timePeriod && (
+        <p className='text-sm mb-1 text-white'>
+          <strong className='text-secondary-light'>Period:</strong>{' '}
+          {work.timePeriod}
+        </p>
+      )}
 
       {/* Role Type */}
       <p className='text-sm mb-4 text-white'>

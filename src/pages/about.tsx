@@ -13,9 +13,9 @@ export default function AboutPage() {
       <main className='container mx-auto mt-12'>
         <section id='about'>
           <div className='container mx-auto px-6 text-center'>
-            <h2 className='text-4xl md:text-5xl font-bold font-serif mb-6'>
+            <h1 className='text-4xl md:text-5xl font-bold font-serif mb-6'>
               About Me
-            </h2>
+            </h1>
 
             <div className='bg-black/20 rounded p-6'>
               {/* The Nerd Rundown */}

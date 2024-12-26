@@ -1900,12 +1900,12 @@ export const KubernetesDetails: SkillDetails = {
   name: 'Kubernetes',
   icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/kubernetes/kubernetes-plain.svg',
   description:
-    'Kubernetes has been instrumental in managing containerized applications at scale, enabling seamless orchestration, load balancing, and deployment in cloud environments.',
+    'Kubernetes is a container orchestration tool that I’ve worked with indirectly through GitLab pipelines and pre-configured infrastructure, providing exposure to workflows involving microservices and scalable environments.',
   highlights: [
-    'Managed containerized applications and services with Kubernetes.',
-    'Collaborated on microservices architecture deployments.',
-    'Streamlined CI/CD workflows with Kubernetes-based environments.',
-    'Explored Kubernetes integration with Docker for scalable applications.',
+    'Collaborated on workflows that utilized Kubernetes for microservice testing and deployment.',
+    'Worked within GitLab CI/CD pipelines designed for Kubernetes-managed environments.',
+    'Observed the use of Kubernetes for dynamic microservice testing workflows.',
+    'Developed features tested on pre-configured Kubernetes environments managed by other teams.',
   ],
   experiences: [
     {
@@ -1913,52 +1913,54 @@ export const KubernetesDetails: SkillDetails = {
       role: 'Full Stack Engineer',
       period: 'Mar 2022 – Jan 2024',
       summary:
-        'Deployed and managed microservices using Kubernetes in a CI/CD pipeline.',
+        'Collaborated on CI/CD workflows that interfaced with Kubernetes for testing and deploying microservices.',
       outcomes: [
-        'Improved scalability and reliability of marketing platforms with container orchestration.',
-        'Streamlined deployments by integrating Kubernetes with GitLab pipelines.',
+        'Contributed to efficient testing workflows by developing features tested in Kubernetes-based environments.',
+        'Enhanced understanding of Kubernetes workflows through exposure to pipeline-driven microservice orchestration.',
       ],
     },
   ],
-  tools: ['kubectl', 'Helm', 'Docker', 'GitLab CI/CD'],
+  tools: ['GitLab CI/CD', 'Pre-configured Kubernetes Clusters', 'Docker'],
   keywords: [
     'Container orchestration',
     'Microservices',
-    'Load balancing',
-    'Scaling',
-    'Cloud deployment',
+    'CI/CD pipelines',
+    'Testing environments',
+    'Scalable infrastructure',
   ],
   proficiencyLevel: 'Intermediate',
   industryApplications: ['Digital Marketing (RXMG)'],
   challengesAndSolutions: [
     {
-      challenge: 'Ensuring high availability for containerized microservices.',
+      challenge:
+        'Adapting to workflows that relied on Kubernetes-managed environments.',
       solution:
-        'Used Kubernetes auto-scaling and load balancing to distribute workloads efficiently.',
+        'Gained familiarity with Kubernetes workflows by working on features integrated with microservices tested in pre-configured clusters.',
     },
     {
-      challenge: 'Integrating Kubernetes with existing CI/CD workflows.',
+      challenge:
+        'Understanding the use of Kubernetes for dynamic microservice testing.',
       solution:
-        'Configured GitLab pipelines to build and deploy containers to Kubernetes clusters automatically.',
+        'Worked within GitLab pipelines to observe and leverage Kubernetes-based testing workflows.',
     },
   ],
   projects: [
     {
-      name: 'Kubernetes Microservices Deployment',
+      name: 'Kubernetes CI/CD Workflow Integration',
       description:
-        'Collaborated on deploying marketing platform microservices using Kubernetes.',
+        'Contributed to development and testing of features integrated with Kubernetes-based workflows.',
       role: 'Collaborative Developer',
       impact: [
-        'Enhanced platform reliability and reduced downtime.',
-        'Enabled streamlined containerized deployments with automated scaling.',
+        'Facilitated seamless feature testing within pre-configured Kubernetes environments.',
+        'Supported the team by developing features aligned with existing Kubernetes infrastructure.',
       ],
     },
   ],
   learningPath: {
-    resources: ['Kubernetes Docs'],
+    resources: ['Kubernetes Docs', 'GitLab CI/CD Documentation'],
     milestones: [
-      'Deployed containerized applications with Kubernetes in production environments.',
-      'Integrated Kubernetes into CI/CD pipelines for seamless deployments.',
+      'Collaborated on workflows utilizing Kubernetes for microservices testing.',
+      'Gained hands-on exposure to Kubernetes environments through GitLab pipelines.',
     ],
   },
 };
@@ -3193,18 +3195,30 @@ export default function SkillsPage() {
       description='Explore my professional skills and experiences.'
     >
       <main className='container mx-auto my-12'>
-        <h1 className='text-4xl font-bold text-center mb-8 text-white'>
-          Skills
-        </h1>
+        <section>
+          <h1 className='text-4xl font-bold text-center mb-8 text-white'>
+            Skills
+          </h1>
 
-        <section className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6'>
-          {skills.map((skill, index) => (
-            <SkillBlock
-              key={index}
-              skill={skill}
-              onClick={openModal}
-            />
-          ))}
+          <div className='bg-black/20 rounded p-6 max-w-xl mx-auto mb-12'>
+            <p className='text-lg md:text-xl font-body text-center text-neutral-light'>
+              Explore a comprehensive showcase of the skills I’ve honed over the
+              years. From crafting seamless user interfaces to building scalable
+              back-end systems, these capabilities power the innovative
+              solutions I deliver. Let’s dive into the technologies that make it
+              all possible.
+            </p>
+          </div>
+
+          <div className='grid grid-cols-2 lg:grid-cols-4 gap-8'>
+            {skills.map((skill, index) => (
+              <SkillBlock
+                key={index}
+                skill={skill}
+                onClick={openModal}
+              />
+            ))}
+          </div>
         </section>
 
         <SkillModal

@@ -21,8 +21,6 @@ export default function HomepageHeader() {
 
   return (
     <header className='relative flex flex-col items-center justify-center h-[calc(100vh-125px)] text-neutral-light'>
-      <HeaderBackground />
-
       <HeaderHeading />
 
       <div className='mt-6 space-x-4'>
@@ -36,6 +34,8 @@ export default function HomepageHeader() {
           target='/work'
         />
       </div>
+
+      <HeaderBackground />
     </header>
   );
 }

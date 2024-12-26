@@ -84,18 +84,20 @@ const config: Config = {
         { to: '/', label: 'Home', position: 'left', exact: true },
         { to: '/skills', label: 'Skills', position: 'left' },
         { to: '/work', label: 'Work', position: 'left' },
-        { to: '/about', label: 'About', position: 'left' },
-        { to: '/contact', label: 'Contact', position: 'left' },
-        {
-          label: 'Extra',
-          position: 'right',
-          items: [
-            { to: '/personals', label: 'Personals' },
-            { to: '/code', label: 'Code' },
-            { to: '/blog', label: 'Blog' },
-            { to: '/credits', label: 'Credits' },
-          ],
-        },
+        { to: '/personals', label: 'Personals', position: 'left' },
+        { to: '/code', label: 'Code', position: 'left' },
+
+        { to: '/contact', label: 'Contact', position: 'right' },
+        { to: '/about', label: 'About', position: 'right' },
+        { to: '/blog', label: 'Blog', position: 'right' },
+        { to: '/credits', label: 'Credits', position: 'right' },
+        // {
+        //   label: 'Extra',
+        //   position: 'right',
+        //   items: [
+
+        //   ],
+        // },
       ],
     },
     footer: {
