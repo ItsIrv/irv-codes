@@ -204,3 +204,79 @@ a.table-of-contents__link.toc-highlight.table-of-contents__link--active {
 a.table-of-contents__link.toc-highlight:hover {
   --ifm-color-primary: var(--ifm-color-secondary);
 }
+
+/* General article styles */
+article {
+  @apply rounded-lg p-6; /* Base typography and spacing */
+  background-color: rgba(0, 0, 0, 0.2); /* Ensure this matches your design */
+}
+
+/* Adjustments for light theme to fit black/20 background */
+article h1 {
+  @apply text-white font-bold text-4xl mt-6 mb-4; /* Bright white for headings */
+}
+
+article h2 {
+  @apply text-gray-100 font-semibold text-3xl mt-6 mb-4; /* Slightly off-white */
+}
+
+article h3 {
+  @apply text-gray-200 font-semibold text-2xl mt-4 mb-3;
+}
+
+article h4 {
+  @apply text-gray-300 font-medium text-xl mt-4 mb-2;
+}
+
+article h5 {
+  @apply text-gray-400 font-medium text-lg mt-3 mb-2;
+}
+
+article h6 {
+  @apply text-gray-500 font-medium text-base mt-3 mb-2;
+}
+
+/* Paragraphs */
+article p {
+  @apply text-gray-100 text-base leading-relaxed mb-4; /* Ensure readability */
+}
+
+/* Lists */
+article ul {
+  @apply list-disc list-inside text-gray-100 mb-4; /* Brighten list markers */
+}
+
+article ol {
+  @apply list-decimal list-inside text-gray-100 mb-4;
+}
+
+article li {
+  @apply mb-2; /* Default list item spacing */
+}
+
+/* Links */
+article a {
+  @apply text-blue-300 underline hover:text-blue-400; /* Soft blue for links */
+}
+
+/* Blockquotes */
+article blockquote {
+  @apply border-l-4 border-gray-500 pl-4 italic text-gray-300 mb-4;
+}
+
+/* Code Blocks */
+article pre {
+  @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto mb-4; /* Retain standard dark theme for code blocks */
+}
+
+/* Tables */
+article table {
+  @apply bg-white dark:bg-gray-900 rounded text-black dark:text-white;
+}
+
+article th,
+article td {
+}
+
+article th {
+}

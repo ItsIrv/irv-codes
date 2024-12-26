@@ -1,28 +1,23 @@
 import Layout from '@theme/Layout';
-import React, { useState } from 'react';
+import React from 'react';
 import WorkBlock from '../components/Work/WorkBlock';
 import { WorkDetails } from '../models/WorkDetails';
-import WorkModal from '../components/Work/WorkModal';
+import Link from '@docusaurus/Link';
 
-const codeBlocks: WorkDetails[] = [];
+const codeBlocks: (WorkDetails & { url: string })[] = [
+  {
+    url: '/code/laravel-echo-sockets#websocketservice-class',
+    title: 'Laravel Echo WebSockets',
+    roleType: 'TypeScript',
+    description:
+      'Overhauled the React Native codebase for improved performance and scalability.',
+  },
+];
 
 /**
  * CodePage Component
  */
 export default function CodePage() {
-  const [selectedWork, setSelectedWork] = useState(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const openModal = (work: WorkDetails) => {
-    setSelectedWork(work);
-    setIsModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setIsModalVisible(false);
-    setTimeout(() => setSelectedWork(null), 300);
-  };
-
   return (
     <Layout
       title='About'
@@ -46,20 +41,19 @@ export default function CodePage() {
 
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {codeBlocks.map((work, index) => (
-              <WorkBlock
+              <Link
                 key={index}
-                work={work}
-                onClick={openModal}
-              />
+                href={work.url}
+              >
+                <WorkBlock
+                  key={index}
+                  work={work}
+                  onClick={() => {}}
+                />
+              </Link>
             ))}
           </div>
         </section>
-
-        <WorkModal
-          isVisible={isModalVisible}
-          onClose={closeModal}
-          work={selectedWork}
-        />
       </main>
     </Layout>
   );

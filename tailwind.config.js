@@ -4,11 +4,21 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
   content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Include all your source files
+    './src/**/*.{js,jsx,ts,tsx,mdx}', // Include all your source files
     './docusaurus.config.js', // Include config for dynamic class usage
+    './docs/**/*.{mdx}',
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: null, // Disable Tailwind's prose styles for <pre>
+            code: null, // Disable Tailwind's prose styles for <code>
+            table: null, // Disable Tailwind's prose styles for <table>
+          },
+        },
+      },
       fontFamily: {
         sans: ['Nunito', ...fontFamily.sans], // Modern and clean sans-serif
         serif: ['Lora', ...fontFamily.serif], // Elegant but readable serif

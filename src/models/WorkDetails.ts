@@ -3,8 +3,8 @@ export interface WorkDetails {
   company?: string; // The company name
   timePeriod?: string; // When you worked here
   description: string; // General overview of your time here
-  responsibilities: string[]; // Detailed list of your tasks and responsibilities
-  technologies: {
+  responsibilities?: string[]; // Detailed list of your tasks and responsibilities
+  technologies?: {
     name: string; // Technology name (e.g., "PHP")
     description: string; // How the technology was used in this role
     impact?: string[]; // Optional: Specific outcomes or impact from using this technology

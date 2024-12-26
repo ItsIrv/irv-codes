@@ -1,0 +1,509 @@
+---
+title: Laravel Echo WebSockets
+description: A composable, and service for managing WebSockets with Laravel Echo.
+---
+
+# WebSocket Utilities
+
+<div class='flex items-center gap-4 mb-6'>
+  🟠 In Development | 🟠 Soft Tested{' '}
+</div>
+
+The <span class='bg-teal-500 rounded p-0.5 text-2'>useWebSocket</span> composable and the <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> class together provide a powerful mechanism to manage WebSocket connections in your Vue applications. They support features like:
+
+- Managing private and public WebSocket channels.
+- Subscribing to and handling real-time events and notifications.
+- Automatically handling reconnections and subscription cleanup.
+
+This guide walks you through how to use these utilities effectively.
+
+---
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [WebSocketService Class](#websocketservice-class)
+3. [useWebSocket Composable](#usewebsocket-composable)
+4. [FAQs](#faqs)
+
+---
+
+## Overview
+
+### WebSocketService Class
+
+<span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> is a singleton service
+designed to abstract the complexities of managing WebSocket connections using [Laravel
+Echo](https://laravel.com/docs/8.x/broadcasting). It provides:
+
+- Event subscription management.
+- Cleanup mechanisms for unsubscribing from events and channels.
+- Support for private channels and real-time notifications.
+
+### Features
+
+- Subscribe to events on public and private channels.
+- Handle notifications with ease.
+- Clean up all connections and subscriptions with a single call.
+
+### Usage
+
+Import <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> into your project and use its methods to manage WebSocket interactions.
+
+```typescript
+import WebSocketService from './WebSocketService';
+
+// Subscribe to a private notification channel
+WebSocketService.notification('user.123', (data) => {
+  console.log('Notification received:', data);
+});
+
+// Listen to a public event
+WebSocketService.listen(
+  'publicChannel',
+  'SomeEvent',
+  (payload) => {
+    console.log('Event received:', payload);
+  },
+  false // Not a private channel
+);
+```
+
+<details>
+<summary>View Full File Content</summary>
+
+```typescript
+import { Channel } from 'laravel-echo';
+
+/**
+ * Singleton service for managing WebSocket connections using Laravel Echo.
+ * Handles private and public channels, event subscriptions, and reconnections.
+ */
+class WebSocketService {
+  private static instance: WebSocketService; // Singleton instance
+  private activeSubscriptions: Record<string, boolean> = {}; // Tracks active subscriptions
+
+  private constructor() {
+    // Private constructor
+  }
+
+  /**
+   * Returns the singleton instance of the WebSocketService.
+   */
+  static getInstance(): WebSocketService {
+    if (!this.instance) {
+      this.instance = new WebSocketService();
+    }
+    return this.instance;
+  }
+
+  /**
+   * Resets the WebSocket state and closes all active connections.
+   * Clears all active subscriptions and leaves all channels.
+   */
+  reset(): void {
+    console.info('[WebSocketService] Resetting all channels and subscriptions');
+    Object.keys(this.activeSubscriptions).forEach((subscriptionKey) => {
+      const channel = subscriptionKey.split(':')[1];
+      if (channel) {
+        this.leave(channel);
+      }
+    });
+    this.activeSubscriptions = {};
+  }
+
+  /**
+   * Subscribes to a private channel for notifications.
+   *
+   * @param channel - The channel name.
+   * @param callback - Callback for notification data.
+   * @returns The Laravel Echo Channel instance.
+   */
+  notification(channel: string, callback: (data: unknown) => void): Channel {
+    const subscriptionKey = `notification:${channel}`;
+    if (this.activeSubscriptions[subscriptionKey]) {
+      console.warn(
+        `[WebSocketService] Already subscribed to notifications on '${channel}'`
+      );
+
+      return window.Echo.private(channel);
+    }
+
+    console.info(
+      `[WebSocketService] Subscribing to notifications on '${channel}'`
+    );
+
+    this.activeSubscriptions[subscriptionKey] = true;
+
+    return window.Echo.private(channel).notification((data: unknown) => {
+      console.log('[WebSocketService] Received notification:', data);
+      callback(data);
+    });
+  }
+
+  /**
+   * Listens to a specific event on a public or private channel.
+   *
+   * @param channel - The channel name.
+   * @param event - The event name.
+   * @param callback - Callback for event data.
+   * @param isPrivate - Whether the channel is private.
+   * @returns The Laravel Echo Channel instance.
+   */
+  listen(
+    channel: string,
+    event: string,
+    callback: (data: unknown) => void,
+    isPrivate = false
+  ): Channel {
+    const fullChannelName = `${isPrivate ? 'private-' : ''}${channel}:${event}`;
+
+    if (this.activeSubscriptions[fullChannelName]) {
+      console.warn(
+        `[WebSocketService] Already subscribed to '${event}' on '${channel}'`
+      );
+      return isPrivate
+        ? window.Echo.private(channel)
+        : window.Echo.channel(channel);
+    }
+
+    console.info(
+      `[WebSocketService] Listening to '${event}' on channel '${channel}'`
+    );
+    this.activeSubscriptions[fullChannelName] = true;
+
+    return (
+      isPrivate ? window.Echo.private(channel) : window.Echo.channel(channel)
+    ).listen(event, (payload: unknown) => {
+      callback(payload);
+
+      console.log(
+        `[WebSocketService] Received event '${event}' on channel '${channel}'`,
+        payload
+      );
+    });
+  }
+
+  /**
+   * Stops listening to a specific event on a channel.
+   *
+   * @param channel - The channel name.
+   * @param event - The event name to stop listening to.
+   * @param isPrivate - Whether the channel is private.
+   */
+  stopListening(channel: string, event: string, isPrivate = false): void {
+    const fullChannelName = `${isPrivate ? 'private-' : ''}${channel}:${event}`;
+
+    if (!this.activeSubscriptions[fullChannelName]) {
+      console.warn(
+        `[WebSocketService] No active subscription for '${event}' on '${channel}'`
+      );
+      return;
+    }
+
+    console.info(
+      `[WebSocketService] Stopping listening to '${event}' on '${channel}'`
+    );
+    if (isPrivate) {
+      window.Echo.private(channel).stopListening(event);
+    } else {
+      window.Echo.channel(channel).stopListening(event);
+    }
+
+    delete this.activeSubscriptions[fullChannelName];
+  }
+
+  /**
+   * Checks if a channel is subscribed.
+   *
+   * @param channel - The channel name.
+   * @param event - (Optional) The event name to check.
+   * @returns True if the channel or event is subscribed, otherwise false.
+   */
+  subscribed(channel: string, event?: string): boolean {
+    if (event) {
+      const fullChannelName = `${channel}:${event}`;
+      const isSubscribed = !!this.activeSubscriptions[fullChannelName];
+      console.debug(
+        `[WebSocketService] subscribed('${channel}', '${event}') -> ${isSubscribed}`
+      );
+      return isSubscribed;
+    }
+
+    const isChannelSubscribed = Object.keys(this.activeSubscriptions).some(
+      (key) => key.startsWith(channel)
+    );
+    console.debug(
+      `[WebSocketService] subscribed('${channel}') -> ${isChannelSubscribed}`
+    );
+    return isChannelSubscribed;
+  }
+
+  /**
+   * Unsubscribes from a channel.
+   * Removes all related subscriptions.
+   *
+   * @param channel - The channel name to leave.
+   */
+  leave(channel: string): void {
+    console.info(`[WebSocketService] Leaving channel '${channel}'`);
+    window.Echo.leave(channel);
+
+    Object.keys(this.activeSubscriptions)
+      .filter((key) => key.startsWith(channel))
+      .forEach((key) => {
+        console.debug(`[WebSocketService] Removing subscription '${key}'`);
+        delete this.activeSubscriptions[key];
+      });
+  }
+}
+
+export default WebSocketService.getInstance();
+```
+
+</details>
+
+---
+
+### useWebSocket Composable
+
+<span class='bg-teal-500 rounded p-0.5'>useWebSocket</span> is a Vue composable that
+wraps <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> and provides
+an intuitive API for managing subscriptions at the component level. It is particularly
+useful for handling dynamic channel updates and multiple event subscriptions.
+
+### Features
+
+- Subscribe to notifications or specific events.
+- Dynamically update the active channel.
+- Clean up subscriptions when the component is destroyed.
+
+### Usage
+
+```typescript
+<script setup>
+import { useWebSocket } from 'src/composables/useWebSocket';
+
+const { subscribeToNotifications, subscribeToEvent, cleanup } = useWebSocket(
+  'user.123',
+  true
+);
+
+// Subscribe to notifications
+subscribeToNotifications((data) => {
+  console.log('Notification:', data);
+});
+
+// Subscribe to a specific event
+subscribeToEvent('OrderCreated', (payload) => {
+  console.log('Order created:', payload);
+});
+
+// Cleanup on component unmount
+onUnmounted(() => {
+  cleanup();
+});
+</script>
+```
+
+<details>
+<summary>View Full File Content</summary>
+
+```typescript
+import WebSocketService from 'src/services/WebSocket/WebSocketService';
+
+interface EventSubscription {
+  event: string;
+  callback: (data: unknown) => void;
+}
+
+/**
+ * Manages WebSocket connections and event subscriptions.
+ * Provides functions to subscribe, unsubscribe, and manage events on a WebSocket channel.
+ *
+ * @param initialChannel - The initial WebSocket channel to connect to.
+ * @param privateChannel - Optional flag indicating if the channel is private.
+ * @returns An object with methods to manage WebSocket subscriptions and connections.
+ */
+export function useWebSocket(initialChannel: string, privateChannel = false) {
+  // Store active events and their callbacks
+  const activeEvents = new Map<string, Set<EventSubscription>>();
+  let currentChannel = initialChannel; // Track the current channel
+
+  /**
+   * Subscribes to notifications on the current WebSocket channel.
+   *
+   * @param callback - The callback function to handle notifications.
+   * @returns The Channel reference from WebSocketService.
+   */
+  const subscribeToNotifications = (callback: (data: unknown) => void) => {
+    console.info(
+      `[WebSocket] Subscribing to notifications on channel '${currentChannel}'`
+    );
+    return WebSocketService.notification(currentChannel, callback);
+  };
+
+  /**
+   * Subscribes to a specific event on the WebSocket channel.
+   * Handles multiple listeners for the same event.
+   *
+   * @param event - The event name to subscribe to.
+   * @param callback - The callback function for the event.
+   */
+  const subscribeToEvent = (
+    event: string,
+    callback: (data: unknown) => void
+  ) => {
+    const eventKey = `${event}`;
+    if (!activeEvents.has(eventKey)) {
+      activeEvents.set(eventKey, new Set());
+    }
+
+    const subscription = { event, callback };
+    activeEvents.get(eventKey)?.add(subscription);
+
+    console.info(
+      `[WebSocket] Subscribing to event '${event}' on channel '${currentChannel}'`
+    );
+    WebSocketService.listen(currentChannel, event, callback, privateChannel);
+  };
+
+  /**
+   * Stops listening to a specific event on the WebSocket channel.
+   * Cleans up all associated callbacks.
+   *
+   * @param event - The event name to stop listening to.
+   * @param callback - (Optional) The specific callback to remove. If not provided, all callbacks are removed.
+   */
+  const stopListening = (event: string, callback?: (data: unknown) => void) => {
+    const eventKey = `${event}`;
+    const subscriptions = activeEvents.get(eventKey);
+
+    if (!subscriptions) {
+      console.warn(`[WebSocket] No active subscriptions for event '${event}'`);
+      return;
+    }
+
+    if (callback) {
+      subscriptions.forEach((sub) => {
+        if (sub.callback === callback) {
+          subscriptions.delete(sub);
+          console.info(
+            `[WebSocket] Removed a specific listener for event '${event}'`
+          );
+        }
+      });
+
+      if (subscriptions.size === 0) {
+        activeEvents.delete(eventKey);
+        WebSocketService.stopListening(currentChannel, event, privateChannel);
+        console.info(
+          `[WebSocket] Stopped listening to event '${event}' on channel '${currentChannel}'`
+        );
+      }
+    } else {
+      subscriptions.clear();
+      activeEvents.delete(eventKey);
+      WebSocketService.stopListening(currentChannel, event, privateChannel);
+      console.info(`[WebSocket] Removed all listeners for event '${event}'`);
+    }
+  };
+
+  /**
+   * Checks if a specific event has active subscriptions.
+   *
+   * @param event - The event name to check.
+   * @returns True if there are active subscriptions for the event, false otherwise.
+   */
+  const isSubscribed = (event: string): boolean => {
+    const subscriptions = activeEvents.get(event);
+    const result = subscriptions !== undefined && subscriptions.size > 0;
+    console.debug(`[WebSocket] isSubscribed('${event}') -> ${result}`);
+    return result;
+  };
+
+  /**
+   * Cleans up all active subscriptions for this channel.
+   * Stops listening to all events and clears active events.
+   */
+  const cleanup = () => {
+    console.info(`[WebSocket] Cleaning up channel '${currentChannel}'`);
+    activeEvents.forEach((subscriptions, event) => {
+      WebSocketService.stopListening(currentChannel, event, privateChannel);
+      console.info(`[WebSocket] Stopped listening to event '${event}'`);
+    });
+
+    activeEvents.clear();
+    WebSocketService.leave(currentChannel);
+    console.info(`[WebSocket] Left channel '${currentChannel}'`);
+  };
+
+  /**
+   * Updates the current channel name and optionally resets the connection.
+   *
+   * @param newChannel - The new channel name.
+   * @param reset - Whether to reset all subscriptions for the new channel.
+   */
+  const updateChannel = (newChannel: string, reset = true) => {
+    if (newChannel === currentChannel) {
+      console.warn(`[WebSocket] The channel is already set to '${newChannel}'`);
+      return;
+    }
+
+    console.info(
+      `[WebSocket] Updating channel from '${currentChannel}' to '${newChannel}'`
+    );
+    if (reset) {
+      cleanup(); // Clean up existing subscriptions
+    }
+
+    currentChannel = newChannel; // Update the channel name
+  };
+
+  /**
+   * Resets all subscriptions with the current channel.
+   * Useful after updating the channel name.
+   */
+  const resetConnection = () => {
+    console.info(
+      `[WebSocket] Resetting connection for channel '${currentChannel}'`
+    );
+    const previousSubscriptions = Array.from(activeEvents.entries());
+    cleanup(); // Clean up existing subscriptions
+
+    // Re-subscribe to all events on the new channel
+    previousSubscriptions.forEach(([event, subscriptions]) => {
+      subscriptions.forEach((sub) => {
+        subscribeToEvent(event, sub.callback);
+      });
+    });
+  };
+
+  return {
+    subscribeToNotifications,
+    subscribeToEvent,
+    stopListening,
+    isSubscribed,
+    cleanup,
+    updateChannel,
+    resetConnection,
+  };
+}
+```
+
+</details>
+
+---
+
+## FAQs
+
+**Q: What happens if the WebSocket connection is lost?**  
+A: Laravel Echo automatically attempts to reconnect. The <span class='bg-teal-500 rounded p-0.5'>useWebSocket</span> composable ensures subscriptions are managed during reconnections.
+
+**Q: Can I use <span class='bg-teal-500 rounded p-0.5'>useWebSocket</span> with multiple channels?**  
+A: Yes, but you'll need to create separate instances for each channel.
+
+**Q: How do I handle memory leaks?**  
+A: Always call the <span class='bg-teal-500 rounded p-0.5'>cleanup</span> method when your component is destroyed.
+
+---
