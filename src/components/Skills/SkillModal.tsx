@@ -26,7 +26,7 @@ export default function SkillModal({
       <div className='space-y-8 font-body text-neutral-800 dark:text-neutral-200'>
         {/* Header Section */}
         <div className='border-b pb-4'>
-          <h2 className='text-2xl font-display text-primary dark:text-primary-light'>
+          <h2 className='text-2xl font-serif text-center text-primary dark:text-primary-light'>
             {skill.name}
           </h2>
           {skill.icon && (
@@ -44,7 +44,7 @@ export default function SkillModal({
         {/* Key Highlights */}
         {skill.highlights && skill.highlights.length > 0 && (
           <div>
-            <h3 className='text-xl font-semibold text-accent dark:text-accent-light mb-4'>
+            <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
               Key Highlights
             </h3>
             <ul className='list-disc list-inside space-y-3'>
@@ -63,7 +63,7 @@ export default function SkillModal({
         {/* Relevant Experiences */}
         {skill.experiences && skill.experiences.length > 0 && (
           <div>
-            <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
+            <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
               Relevant Experiences
             </h3>
             <ul className='space-y-6'>
@@ -81,7 +81,7 @@ export default function SkillModal({
                     </span>
                   </div>
                   <p className='text-neutral-700 dark:text-neutral-300'>
-                    <strong className='text-primary dark:text-primary-light'>
+                    <strong className='text-accent dark:text-accent-light'>
                       {exp.company}
                     </strong>
                   </p>
@@ -111,7 +111,7 @@ export default function SkillModal({
                   key={idx}
                   className='border rounded-md p-4 bg-neutral-50 dark:bg-neutral-800 shadow-sm'
                 >
-                  <h4 className='text-lg font-serif text-secondary dark:text-secondary-light'>
+                  <h4 className='text-lg font-semibold text-secondary dark:text-secondary-light'>
                     {project.name}
                   </h4>
                   <p className='mt-2'>{project.description}</p>
@@ -131,7 +131,7 @@ export default function SkillModal({
         {skill.challengesAndSolutions &&
           skill.challengesAndSolutions.length > 0 && (
             <div>
-              <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
+              <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
                 Challenges & Solutions
               </h3>
               <div className='space-y-6'>
@@ -165,13 +165,17 @@ export default function SkillModal({
               Learning Path
             </h3>
             <div>
-              <h4 className='text-lg font-medium mb-2'>Resources</h4>
+              <h4 className='text-lg font-medium text-accent dark:text-accent-light mb-2'>
+                Resources
+              </h4>
               <ul className='list-disc list-inside space-y-1'>
                 {skill.learningPath.resources.map((resource, idx) => (
                   <li key={idx}>{resource}</li>
                 ))}
               </ul>
-              <h4 className='text-lg font-medium mt-4 mb-2'>Milestones</h4>
+              <h4 className='text-lg font-medium text-accent dark:text-accent-light mt-4 mb-2'>
+                Milestones
+              </h4>
               <ul className='list-disc list-inside space-y-1'>
                 {skill.learningPath.milestones.map((milestone, idx) => (
                   <li key={idx}>{milestone}</li>

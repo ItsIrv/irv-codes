@@ -401,11 +401,7 @@ export const JavaScriptDetails: SkillDetails = {
     },
   ],
   learningPath: {
-    resources: [
-      'JavaScript: The Definitive Guide',
-      'Frontend Masters JavaScript Path',
-      'MDN Web Docs',
-    ],
+    resources: ['JavaScript: The Definitive Guide', 'MDN Web Docs'],
     milestones: [
       'Mastered ES6+ features for cleaner and more efficient code.',
       'Built real-time chatrooms and notifications for multi-platform apps.',
@@ -513,10 +509,7 @@ export const TypeScriptDetails: SkillDetails = {
     },
   ],
   learningPath: {
-    resources: [
-      'TypeScript Handbook (official docs)',
-      'Frontend Masters TypeScript Path',
-    ],
+    resources: ['TypeScript Handbook (official docs)'],
     milestones: [
       'Refactored a React Native application with strict TypeScript implementation.',
       'Integrated TypeScript into large-scale CMS/CRM platforms for consistent data handling.',
@@ -3022,6 +3015,107 @@ export const AzureDetails: SkillDetails = {
   },
 };
 
+export const HTML5Details: SkillDetails = {
+  name: 'HTML5',
+  icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/html5/html5-original.svg',
+  description:
+    'HTML5 has been the foundation of my front-end development, enabling me to create well-structured, accessible, and SEO-optimized web pages and applications.',
+  highlights: [
+    'Crafted accessible and SEO-friendly HTML structures for various projects.',
+    'Used semantic HTML to enhance website usability and maintainability.',
+    'Integrated HTML5 features like media elements and form validation.',
+    'Developed modular, reusable templates for hybrid and multi-platform apps.',
+  ],
+  experiences: [
+    {
+      company: 'RXMG',
+      role: 'Full Stack Engineer',
+      period: 'Mar 2022 – Jan 2024',
+      summary:
+        'Designed semantic HTML structures for marketing platforms, improving user engagement and SEO performance.',
+      outcomes: [
+        'Enhanced accessibility and compatibility across multiple devices.',
+        'Improved user retention with well-structured, interactive pages.',
+      ],
+    },
+    {
+      company: 'Easeenet',
+      role: 'Full Stack Engineer',
+      period: 'Jan 2018 – Dec 2020',
+      summary:
+        'Built responsive SPAs with a focus on semantic and structured HTML for a startup’s platform.',
+      outcomes: [
+        'Created clean, reusable HTML templates for faster development.',
+        'Improved user experience through well-organized content delivery.',
+      ],
+    },
+    {
+      company: 'Freelance',
+      role: 'Full Stack Engineer',
+      period: 'Jan 2024 – Present',
+      summary:
+        'Developed clean, accessible HTML structures for hybrid web and mobile applications.',
+      outcomes: [
+        'Streamlined content delivery across web and mobile platforms.',
+        'Enhanced UI consistency with modular and semantic HTML.',
+      ],
+    },
+  ],
+  tools: [
+    'HTML5 Validator',
+    'Web Accessibility Tools',
+    'Responsive Design Testing',
+  ],
+  keywords: [
+    'Semantic HTML',
+    'Accessibility',
+    'Reusable templates',
+    'SEO optimization',
+    'Cross-browser compatibility',
+  ],
+  proficiencyLevel: 'Expert',
+  industryApplications: [
+    'Marketing Platforms (RXMG)',
+    'Startup Platforms (Easeenet)',
+    'Hybrid Web Applications (Freelance)',
+  ],
+  challengesAndSolutions: [
+    {
+      challenge: 'Ensuring accessibility across modern and legacy browsers.',
+      solution:
+        'Used semantic HTML5 elements and thorough testing to ensure compatibility and accessibility.',
+    },
+    {
+      challenge: 'Optimizing HTML structures for scalability in hybrid apps.',
+      solution:
+        'Developed reusable templates with clean, modular code to support scalable designs.',
+    },
+  ],
+  projects: [
+    {
+      name: 'Marketing Platform HTML Templates',
+      description:
+        'Developed structured HTML templates to improve content delivery for RXMG.',
+      role: 'Collaborative Developer',
+      impact: [
+        'Enhanced engagement and SEO with semantic, well-organized pages.',
+        'Improved development efficiency with reusable templates.',
+      ],
+    },
+  ],
+  learningPath: {
+    resources: [
+      'HTML5 Docs',
+      'Web Accessibility Guidelines (WCAG)',
+      'HTML5 Rocks (archive site)',
+    ],
+    milestones: [
+      'Built modular, reusable HTML templates for SPAs.',
+      'Enhanced accessibility and SEO with semantic HTML structures.',
+    ],
+  },
+};
+
 export const skills: SkillDetails[] = [
   // Primary Programming & Framework Skills
   PHPDetails,
@@ -3032,6 +3126,7 @@ export const skills: SkillDetails[] = [
   VueJSDetails,
   ReactDetails,
   ReactNativeDetails,
+  HTML5Details,
 
   // Database & Caching
   MySQLDetails,

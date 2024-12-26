@@ -18,6 +18,11 @@ export default function WorkModal({
 }: WorkModalProps) {
   if (!work) return null;
 
+  // Find the first liveProject resource
+  const liveProject = work.resources?.find(
+    (resource) => resource.type === 'liveProject'
+  );
+
   return (
     <Modal
       isVisible={isVisible}
@@ -26,7 +31,7 @@ export default function WorkModal({
       <div className='space-y-8 font-body text-neutral-800 dark:text-neutral-200'>
         {/* Header Section */}
         <div className='border-b pb-4'>
-          <h2 className='text-2xl font-display text-primary dark:text-primary-light'>
+          <h2 className='text-2xl font-serif text-primary dark:text-primary-light'>
             {work.title}
           </h2>
           <p className='text-lg text-secondary dark:text-secondary-light mt-2'>
@@ -35,6 +40,19 @@ export default function WorkModal({
           <p className='text-neutral-600 dark:text-neutral-400'>
             {work.timePeriod}
           </p>
+          {/* Display Live Website Link */}
+          {liveProject && (
+            <p className='text-neutral-600 dark:text-neutral-400 mt-2'>
+              <a
+                href={liveProject.url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-accent dark:text-accent-light underline hover:text-primary dark:hover:text-primary-light'
+              >
+                Live Website
+              </a>
+            </p>
+          )}
         </div>
 
         {/* Description */}
@@ -47,7 +65,7 @@ export default function WorkModal({
         {/* Responsibilities */}
         {work.responsibilities && work.responsibilities.length > 0 && (
           <div>
-            <h3 className='text-xl font-semibold text-accent dark:text-accent-light mb-4'>
+            <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
               Responsibilities
             </h3>
             <ul className='list-disc list-inside space-y-3'>
@@ -66,7 +84,7 @@ export default function WorkModal({
         {/* Technologies Used */}
         {work.technologies && work.technologies.length > 0 && (
           <div>
-            <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
+            <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
               Technologies Used
             </h3>
             <div className='space-y-6'>
@@ -75,7 +93,7 @@ export default function WorkModal({
                   key={idx}
                   className='border rounded-md p-4 bg-neutral-50 dark:bg-neutral-800 shadow-sm'
                 >
-                  <h4 className='text-lg font-primary text-primary dark:text-primary-light'>
+                  <h4 className='text-lg font-semibold text-accent dark:text-accent-light'>
                     {tech.name}
                   </h4>
                   <p className='text-neutral-700 dark:text-neutral-300 mt-2'>
@@ -97,7 +115,7 @@ export default function WorkModal({
         {/* Key Achievements */}
         {work.keyAchievements && work.keyAchievements.length > 0 && (
           <div>
-            <h3 className='text-2xl font-semibold text-accent dark:text-accent-light mb-4'>
+            <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
               Key Achievements
             </h3>
             <ul className='space-y-4'>
@@ -117,7 +135,7 @@ export default function WorkModal({
         {work.challengesAndSolutions &&
           work.challengesAndSolutions.length > 0 && (
             <div>
-              <h3 className='text-xl font-semibold text-secondary dark:text-secondary-light mb-4'>
+              <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
                 Challenges & Solutions
               </h3>
               <div className='space-y-6'>
@@ -161,14 +179,14 @@ export default function WorkModal({
                     key={idx}
                     className='border rounded-md p-4 bg-neutral-50 dark:bg-neutral-800 shadow-sm'
                   >
-                    <h4 className='text-lg font-serif text-secondary dark:text-secondary-light'>
+                    <h4 className='text-lg font-semibold text-secondary dark:text-secondary-light'>
                       {project.name}
                     </h4>
                     <p className='mt-2'>{project.description}</p>
-                    <p className=' mt-1'>
+                    <p className='mt-1'>
                       <strong>Role:</strong> {project.role}
                     </p>
-                    <p className=' mt-1'>
+                    <p className='mt-1'>
                       <strong>Impact:</strong> {project.impact.join(', ')}
                     </p>
                   </div>
@@ -176,6 +194,29 @@ export default function WorkModal({
               </div>
             </div>
           )}
+
+        {/* Resources */}
+        {work.resources && work.resources.length > 0 && (
+          <div>
+            <h3 className='text-xl font-semibold text-primary dark:text-primary-light mb-4'>
+              Resources
+            </h3>
+            <ul className='space-y-2'>
+              {work.resources.map((resource, idx) => (
+                <li key={idx}>
+                  <a
+                    href={resource.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-accent dark:text-accent-light underline hover:text-primary dark:hover:text-primary-light'
+                  >
+                    {resource.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </Modal>
   );

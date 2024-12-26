@@ -24,4 +24,9 @@ export interface WorkDetails {
   trainingOrCertificationsAcquired?: string[]; // Any new skills/certs gained here
   feedbackOrRecognition?: string[]; // Feedback, promotions, awards, or recognition
   roleType: 'Full-Time' | 'Contract';
+  resources?: {
+    type: 'repository' | 'liveProject' | 'file'; // Type of resource (e.g., repository, live project, or file)
+    label: string; // Label for the resource (e.g., "GitHub Repo", "Live Site")
+    url: string; // URL or file link to the resource
+  }[]; // Optional resources like links, repositories, or files
 }

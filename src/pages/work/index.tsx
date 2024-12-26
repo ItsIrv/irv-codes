@@ -212,6 +212,13 @@ export const GamigoWorkDetails: WorkDetails = {
       ],
     },
   ],
+  resources: [
+    {
+      type: 'repository',
+      url: 'https://www.gamigo.com/',
+      label: 'Gamigo Company Website',
+    },
+  ],
 };
 
 export const EaseenetWorkDetails: WorkDetails = {
@@ -315,6 +322,13 @@ export const EaseenetWorkDetails: WorkDetails = {
         'Delivered a secure, scalable, and user-friendly product.',
         'Enabled seamless data sharing and inheritance for users.',
       ],
+    },
+  ],
+  resources: [
+    {
+      type: 'liveProject',
+      label: 'Easeenet Website',
+      url: 'https://easeenet.com/',
     },
   ],
 };
@@ -429,6 +443,13 @@ export const WhitmanPartnersWorkDetails: WorkDetails = {
         'Increased daily job listings from none to over ten, driving company growth.',
         'Streamlined manual workflows, saving employee time and effort.',
       ],
+    },
+  ],
+  resources: [
+    {
+      type: 'liveProject',
+      label: 'Whitman Partners Website',
+      url: 'https://whitmanpartners.com/',
     },
   ],
 };
@@ -546,6 +567,13 @@ export const CreditSaintWorkDetails: WorkDetails = {
       ],
     },
   ],
+  resources: [
+    {
+      type: 'liveProject',
+      label: 'Credit Squad Website',
+      url: 'https://www.creditsquad.com/',
+    },
+  ],
 };
 
 export const RXMGWorkDetails: WorkDetails = {
@@ -657,6 +685,13 @@ export const RXMGWorkDetails: WorkDetails = {
       impact: [
         'Improved development efficiency and UI consistency across the platform.',
       ],
+    },
+  ],
+  resources: [
+    {
+      type: 'repository',
+      url: 'https://www.rxmg.com/',
+      label: 'RXMG Company Website',
     },
   ],
 };

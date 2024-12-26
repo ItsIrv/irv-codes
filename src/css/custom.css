@@ -23,7 +23,7 @@
   --ifm-color-neutral-dark: #343a40; /* Charcoal */
 
   /* Additional Utility Colors */
-  --ifm-color-accent: #f4a261; /* Peach Orange (used as accent color) */
+  --ifm-color-accent: #ffb703;
   --ifm-color-highlight: #2a9d8f; /* Teal Green (for highlights) */
   --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
 
@@ -51,7 +51,7 @@
   --ifm-color-neutral-dark: #343a40; /* Charcoal */
 
   /* Additional Utility Colors */
-  --ifm-color-accent: #f5c518; /* Peach Orange (used as accent color) */
+  --ifm-color-accent: #ffb703;
   --ifm-color-highlight: #2a9d8f; /* Teal Green (for highlights) */
   --ifm-color-muted: #7b8a91; /* Muted gray for secondary text */
 }

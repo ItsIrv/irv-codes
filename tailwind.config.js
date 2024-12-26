@@ -36,9 +36,9 @@ module.exports = {
           dark: '#343a40', // Charcoal
         },
         accent: {
-          DEFAULT: '#f5c518', // Golden Yellow for accent
-          dark: '#d4a612', // Slightly darker Golden Yellow
-          light: '#f9d83a', // Slightly lighter Golden Yellow
+          DEFAULT: '#ffb703', // Warm Amber
+          dark: '#d99803', // Slightly darker Amber
+          light: '#ffc633', // Lighter Amber
         },
         highlight: '#2a9d8f', // Teal Green
         muted: '#7b8a91', // Muted gray for secondary text
