@@ -73,7 +73,7 @@ const config: Config = {
     metadata: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
     ],
-    image: 'img/favicon-96.png',
+    image: 'img/headshot.png',
     navbar: {
       style: 'primary',
       logo: {
