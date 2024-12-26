@@ -19,6 +19,14 @@ export default function AboutPage() {
 
             <div className='bg-black/20 rounded p-6'>
               {/* The Nerd Rundown */}
+              <img
+                src='/img/headshot.png'
+                alt='Irving Gomez'
+                height={96}
+                width={96}
+                className='block rounded-full mx-auto mb-6'
+              />
+
               <section className='mb-8'>
                 <h3 className='text-2xl font-bold mb-4'>
                   <span

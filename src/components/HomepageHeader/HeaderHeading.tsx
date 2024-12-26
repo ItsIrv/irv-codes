@@ -10,12 +10,12 @@ export default function HeaderHeading() {
       <img
         src='/img/me.jpg'
         alt='Its a -- meeee'
-        className='rounded-full mx-auto mb-4'
+        className='rounded mx-auto mb-4'
         width={96}
         height={96}
       />
 
-      <h1 className='pb-4 text-5xl md:text-6xl lg:text-7xl font-sans font-bold'>
+      <h1 className='pb-4 text-5xl md:text-6xl lg:text-7xl font-bold'>
         Irving Gomez
       </h1>
 

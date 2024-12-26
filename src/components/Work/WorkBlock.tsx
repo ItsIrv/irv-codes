@@ -18,7 +18,7 @@ const WorkBlock: React.FC<WorkBlockProps> = ({
 }) => {
   return (
     <div
-      className={`group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${className}`}
+      className={`teal-hover group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${className}`}
       onClick={() => onClick(work)}
     >
       {/* Title */}
