@@ -36,6 +36,13 @@ const config: Config = {
         },
       };
     },
+    [
+      'vercel-analytics',
+      {
+        debug: true,
+        mode: 'auto',
+      },
+    ],
   ],
 
   presets: [
