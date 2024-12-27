@@ -1,0 +1,55 @@
+---
+slug: laravel-websocket-utilities
+title: Laravel WebSocket Utilities
+authors: [irvinggomez]
+tags: [laravel, websockets, vue]
+---
+
+# Why I Built useWebSocket & WebSocketService
+
+WebSockets are a cornerstone for real-time interactivity in modern web applications. However, managing WebSocket connections, subscriptions, and events can quickly become overwhelming. While working with **Laravel Echo**, I encountered challenges that led me to create two utilities:
+
+<!-- truncate -->
+
+1. **WebSocketService**: A singleton service for managing WebSocket connections.
+2. **useWebSocket**: A Vue composable that wraps WebSocketService for seamless integration at the component level.
+
+---
+
+## Motivation
+
+While using Laravel Echo for WebSocket connections, I realized I needed a more
+structured and reusable way to:
+
+- Manage multiple WebSocket connections.
+- Handle subscriptions to private and public channels.
+- Automatically clean upresources to prevent memory leaks.
+- Avoid duplicated code across components.
+
+Thus, **WebSocketService** and **useWebSocket** were born out of necessity.
+
+---
+
+## Current Features
+
+- Managing active WebSocket connections.
+- Subscribing to private and public channels.
+- Listening to specific events.
+- Automatic reconnection handling.
+- Cleaning up active subscriptions and connections.
+
+---
+
+## Roadmap
+
+- **Enhanced Event Management**: Add methods to
+  view and manage active events, subscriptions, and channels.
+- **Framework
+  Agnostic Design**: Decouple the utilities from Vue and Laravel Echo for
+  broader compatibility.
+- **WebSocket Adapters**: Introduce inheritance
+  patterns for custom WebSocket implementations.
+
+---
+
+[View the code](/code/laravel-echo-sockets)

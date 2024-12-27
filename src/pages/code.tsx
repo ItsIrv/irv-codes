@@ -6,11 +6,11 @@ import Link from '@docusaurus/Link';
 
 const codeBlocks: (WorkDetails & { url: string })[] = [
   {
-    url: '/code/laravel-echo-sockets#websocketservice-class',
-    title: 'Laravel Echo WebSockets',
+    url: '/code/laravel-echo-sockets',
+    title: 'Laravel WebSocket Utilities',
     roleType: 'TypeScript',
     description:
-      'Overhauled the React Native codebase for improved performance and scalability.',
+      'A useWebSocket composable for Vue, and a WebSocketService in TypeScript.',
   },
 ];
 

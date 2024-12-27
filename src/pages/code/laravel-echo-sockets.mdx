@@ -3,10 +3,13 @@ title: Laravel Echo WebSockets
 description: A composable, and service for managing WebSockets with Laravel Echo.
 ---
 
-# WebSocket Utilities
+import TagsListInline from '@theme/TagsListInline';
 
-<div class='flex items-center gap-4 mb-6'>
-  🟠 In Development | 🟠 Soft Tested{' '}
+# Laravel WebSocket Utilities
+
+<div class='flex items-center gap-x-4 mb-4'>
+  <span>🟠 In Development</span>
+  <span>🟠 Soft Tested</span>
 </div>
 
 The <span class='bg-teal-500 rounded p-0.5 text-2'>useWebSocket</span> composable and the <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> class together provide a powerful mechanism to manage WebSocket connections in your Vue applications. They support features like:
@@ -70,7 +73,7 @@ WebSocketService.listen(
 ```
 
 <details>
-<summary>View Full File Content</summary>
+<summary>View WebSocketService.ts</summary>
 
 ```typescript
 import { Channel } from 'laravel-echo';
@@ -94,6 +97,7 @@ class WebSocketService {
     if (!this.instance) {
       this.instance = new WebSocketService();
     }
+
     return this.instance;
   }
 
@@ -103,12 +107,15 @@ class WebSocketService {
    */
   reset(): void {
     console.info('[WebSocketService] Resetting all channels and subscriptions');
+
     Object.keys(this.activeSubscriptions).forEach((subscriptionKey) => {
       const channel = subscriptionKey.split(':')[1];
+
       if (channel) {
         this.leave(channel);
       }
     });
+
     this.activeSubscriptions = {};
   }
 
@@ -121,6 +128,7 @@ class WebSocketService {
    */
   notification(channel: string, callback: (data: unknown) => void): Channel {
     const subscriptionKey = `notification:${channel}`;
+
     if (this.activeSubscriptions[subscriptionKey]) {
       console.warn(
         `[WebSocketService] Already subscribed to notifications on '${channel}'`
@@ -137,6 +145,7 @@ class WebSocketService {
 
     return window.Echo.private(channel).notification((data: unknown) => {
       console.log('[WebSocketService] Received notification:', data);
+
       callback(data);
     });
   }
@@ -162,6 +171,7 @@ class WebSocketService {
       console.warn(
         `[WebSocketService] Already subscribed to '${event}' on '${channel}'`
       );
+
       return isPrivate
         ? window.Echo.private(channel)
         : window.Echo.channel(channel);
@@ -170,6 +180,7 @@ class WebSocketService {
     console.info(
       `[WebSocketService] Listening to '${event}' on channel '${channel}'`
     );
+
     this.activeSubscriptions[fullChannelName] = true;
 
     return (
@@ -198,12 +209,14 @@ class WebSocketService {
       console.warn(
         `[WebSocketService] No active subscription for '${event}' on '${channel}'`
       );
+
       return;
     }
 
     console.info(
       `[WebSocketService] Stopping listening to '${event}' on '${channel}'`
     );
+
     if (isPrivate) {
       window.Echo.private(channel).stopListening(event);
     } else {
@@ -224,18 +237,22 @@ class WebSocketService {
     if (event) {
       const fullChannelName = `${channel}:${event}`;
       const isSubscribed = !!this.activeSubscriptions[fullChannelName];
+
       console.debug(
         `[WebSocketService] subscribed('${channel}', '${event}') -> ${isSubscribed}`
       );
+
       return isSubscribed;
     }
 
     const isChannelSubscribed = Object.keys(this.activeSubscriptions).some(
       (key) => key.startsWith(channel)
     );
+
     console.debug(
       `[WebSocketService] subscribed('${channel}') -> ${isChannelSubscribed}`
     );
+
     return isChannelSubscribed;
   }
 
@@ -247,12 +264,14 @@ class WebSocketService {
    */
   leave(channel: string): void {
     console.info(`[WebSocketService] Leaving channel '${channel}'`);
+
     window.Echo.leave(channel);
 
     Object.keys(this.activeSubscriptions)
       .filter((key) => key.startsWith(channel))
       .forEach((key) => {
         console.debug(`[WebSocketService] Removing subscription '${key}'`);
+
         delete this.activeSubscriptions[key];
       });
   }
@@ -307,10 +326,10 @@ onUnmounted(() => {
 ```
 
 <details>
-<summary>View Full File Content</summary>
+<summary>View useWebSocket.ts</summary>
 
 ```typescript
-import WebSocketService from 'src/services/WebSocket/WebSocketService';
+import WebSocketService from './WebSocketService';
 
 interface EventSubscription {
   event: string;
@@ -340,6 +359,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
     console.info(
       `[WebSocket] Subscribing to notifications on channel '${currentChannel}'`
     );
+
     return WebSocketService.notification(currentChannel, callback);
   };
 
@@ -355,16 +375,19 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
     callback: (data: unknown) => void
   ) => {
     const eventKey = `${event}`;
+
     if (!activeEvents.has(eventKey)) {
       activeEvents.set(eventKey, new Set());
     }
 
     const subscription = { event, callback };
+
     activeEvents.get(eventKey)?.add(subscription);
 
     console.info(
       `[WebSocket] Subscribing to event '${event}' on channel '${currentChannel}'`
     );
+
     WebSocketService.listen(currentChannel, event, callback, privateChannel);
   };
 
@@ -381,6 +404,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
 
     if (!subscriptions) {
       console.warn(`[WebSocket] No active subscriptions for event '${event}'`);
+
       return;
     }
 
@@ -388,6 +412,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
       subscriptions.forEach((sub) => {
         if (sub.callback === callback) {
           subscriptions.delete(sub);
+
           console.info(
             `[WebSocket] Removed a specific listener for event '${event}'`
           );
@@ -397,6 +422,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
       if (subscriptions.size === 0) {
         activeEvents.delete(eventKey);
         WebSocketService.stopListening(currentChannel, event, privateChannel);
+
         console.info(
           `[WebSocket] Stopped listening to event '${event}' on channel '${currentChannel}'`
         );
@@ -405,6 +431,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
       subscriptions.clear();
       activeEvents.delete(eventKey);
       WebSocketService.stopListening(currentChannel, event, privateChannel);
+
       console.info(`[WebSocket] Removed all listeners for event '${event}'`);
     }
   };
@@ -418,7 +445,9 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
   const isSubscribed = (event: string): boolean => {
     const subscriptions = activeEvents.get(event);
     const result = subscriptions !== undefined && subscriptions.size > 0;
+
     console.debug(`[WebSocket] isSubscribed('${event}') -> ${result}`);
+
     return result;
   };
 
@@ -428,6 +457,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
    */
   const cleanup = () => {
     console.info(`[WebSocket] Cleaning up channel '${currentChannel}'`);
+
     activeEvents.forEach((subscriptions, event) => {
       WebSocketService.stopListening(currentChannel, event, privateChannel);
       console.info(`[WebSocket] Stopped listening to event '${event}'`);
@@ -435,6 +465,7 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
 
     activeEvents.clear();
     WebSocketService.leave(currentChannel);
+
     console.info(`[WebSocket] Left channel '${currentChannel}'`);
   };
 
@@ -447,12 +478,14 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
   const updateChannel = (newChannel: string, reset = true) => {
     if (newChannel === currentChannel) {
       console.warn(`[WebSocket] The channel is already set to '${newChannel}'`);
+
       return;
     }
 
     console.info(
       `[WebSocket] Updating channel from '${currentChannel}' to '${newChannel}'`
     );
+
     if (reset) {
       cleanup(); // Clean up existing subscriptions
     }
@@ -468,7 +501,9 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
     console.info(
       `[WebSocket] Resetting connection for channel '${currentChannel}'`
     );
+
     const previousSubscriptions = Array.from(activeEvents.entries());
+
     cleanup(); // Clean up existing subscriptions
 
     // Re-subscribe to all events on the new channel
@@ -507,3 +542,24 @@ A: Yes, but you'll need to create separate instances for each channel.
 A: Always call the <span class='bg-teal-500 rounded p-0.5'>cleanup</span> method when your component is destroyed.
 
 ---
+
+<TagsListInline
+  tags={[
+    {
+      label: 'Laravel',
+      description: 'Posts related to the Laravel framework and its ecosystem.',
+      permalink: '/blog/tags/laravel',
+    },
+    {
+      label: 'WebSockets',
+      description:
+        'Exploring the power of real-time communication with WebSockets.',
+      permalink: '/blog/tags/websockets',
+    },
+    {
+      label: 'Vue',
+      description: 'Posts related to the Vue.js framework and its ecosystem.',
+      permalink: '/blog/tags/vue',
+    },
+  ]}
+/>

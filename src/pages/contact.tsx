@@ -68,12 +68,21 @@ export default function ContactPage() {
                 >
                   LinkedIn
                 </a>
+
                 <a
                   href='https://github.com/itsirv'
                   target='_blank'
-                  className='text-neutral-light hover:text-gray-400 text-xl transition-transform transform hover:scale-110'
+                  className='text-neutral-light hover:text-blue-400 text-xl transition-transform transform hover:scale-110'
                 >
                   GitHub
+                </a>
+
+                <a
+                  href='/IrvingGomez-Resume.pdf'
+                  target='_blank'
+                  className='text-neutral-light hover:text-blue-400 text-xl transition-transform transform hover:scale-110'
+                >
+                  Resume
                 </a>
               </div>
             </div>
