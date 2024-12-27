@@ -20,6 +20,11 @@ The <span class='bg-teal-500 rounded p-0.5 text-2'>useWebSocket</span> composabl
 
 This guide walks you through how to use these utilities effectively.
 
+:::note
+
+Make sure you have `laravel-echo` installed.
+:::
+
 ---
 
 ## Table of Contents
@@ -37,7 +42,7 @@ This guide walks you through how to use these utilities effectively.
 
 <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> is a singleton service
 designed to abstract the complexities of managing WebSocket connections using [Laravel
-Echo](https://laravel.com/docs/8.x/broadcasting). It provides:
+Echo](https://laravel.com/docs/11.x/broadcasting). It provides:
 
 - Event subscription management.
 - Cleanup mechanisms for unsubscribing from events and channels.
@@ -540,6 +545,14 @@ A: Yes, but you'll need to create separate instances for each channel.
 
 **Q: How do I handle memory leaks?**  
 A: Always call the <span class='bg-teal-500 rounded p-0.5'>cleanup</span> method when your component is destroyed.
+
+---
+
+## Resources
+
+- [Laravel Echo](https://laravel.com/docs/11.x/broadcasting)
+- [Vue Composables](https://vuejs.org/guide/reusability/composables)
+- [MDN WebSocket Docs](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 ---
 

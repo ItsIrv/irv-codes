@@ -193,7 +193,7 @@ footer.footer {
 }
 
 .pagination-nav__link:hover {
-  @apply text-white;
+  @apply text-white teal-hover;
 }
 
 .tag_QGVx a:hover {
@@ -222,11 +222,11 @@ article h1 {
 }
 
 article h2 {
-  @apply text-gray-100 font-semibold text-3xl mt-6 mb-4; /* Slightly off-white */
+  @apply text-accent font-semibold text-3xl mt-6 mb-4; /* Slightly off-white */
 }
 
 article h3 {
-  @apply text-gray-200 font-semibold text-2xl mt-4 mb-3;
+  @apply text-white font-semibold text-2xl mt-4 mb-3;
 }
 
 article h4 {
@@ -284,4 +284,13 @@ article td {
 }
 
 article th {
+}
+
+.alert {
+  --ifm-alert-foreground-color: var(--ifm-color-accent);
+}
+
+.alert--secondary,
+.alert--info {
+  @apply bg-highlight/40;
 }
