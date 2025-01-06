@@ -22,3 +22,8 @@ vue:
   label: Vue
   permalink: /vue
   description: Posts related to the Vue.js framework and its ecosystem.
+
+security:
+  label: Security
+  permalink: /security
+  description: Posts related to security, privacy, and compliance.

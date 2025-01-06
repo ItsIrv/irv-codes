@@ -29,6 +29,8 @@
 
   --ifm-font-color-base: white;
   --ifm-color-content-secondary: var(--ifm-color-primary-light);
+  --ifm-code-background: rgb(19 49 80 / 51%);
+  --ifm-link-hover-color: var(--ifm-color-secondary);
 }
 
 /* Dark Theme Overrides */
@@ -115,15 +117,6 @@ nav.navbar.navbar--fixed-top.navbar-sidebar--show {
   animation: gradientAnimation 3s ease infinite;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
 .navbar__item,
 .navbar__link {
   @apply font-bold rounded;
@@ -182,14 +175,22 @@ footer.footer {
   height: 60px;
 }
 
-/* blog container */
 .container.margin-vert--lg {
+  max-width: var(--ifm-container-width-xl);
 }
 
 .container.margin-vert--lg .thin-scrollbar,
 .container.margin-vert--lg article,
 .pagination-nav__link {
-  @apply bg-black/20 rounded p-6;
+  @apply bg-black/20 dark:bg-transparent rounded;
+}
+
+.pagination-nav__link {
+  @apply border-none;
+}
+
+.container.margin-vert--lg nav.thin-scrollbar {
+  @apply p-2;
 }
 
 .pagination-nav__link:hover {
@@ -218,7 +219,7 @@ article {
 
 /* Adjustments for light theme to fit black/20 background */
 article h1 {
-  @apply text-white font-bold text-4xl mt-6 mb-4; /* Bright white for headings */
+  @apply text-white font-bold text-4xl mt-6 mb-4 leading-[50px]; /* Bright white for headings */
 }
 
 article h2 {
@@ -243,7 +244,7 @@ article h6 {
 
 /* Paragraphs */
 article p {
-  @apply text-gray-100 text-base leading-relaxed mb-4; /* Ensure readability */
+  @apply dark:text-gray-100 text-base leading-relaxed mb-4; /* Ensure readability */
 }
 
 /* Lists */
@@ -261,7 +262,7 @@ article li {
 
 /* Links */
 article a {
-  @apply text-blue-300 underline hover:text-blue-400; /* Soft blue for links */
+  @apply text-blue-300 hover:text-blue-400 leading-[50px] hover:no-underline; /* Soft blue for links */
 }
 
 /* Blockquotes */
@@ -279,18 +280,21 @@ article table {
   @apply bg-white dark:bg-gray-900 rounded text-black dark:text-white;
 }
 
-article th,
-article td {
-}
-
-article th {
-}
-
 .alert {
   --ifm-alert-foreground-color: var(--ifm-color-accent);
 }
 
 .alert--secondary,
 .alert--info {
-  @apply bg-highlight/40;
+  @apply bg-teal-500/40;
+}
+.alert--success {
+  @apply bg-green-700/40;
+}
+.alert--danger {
+  @apply bg-rose-600/40;
+}
+
+.alert--warning {
+  @apply bg-amber-800/40;
 }

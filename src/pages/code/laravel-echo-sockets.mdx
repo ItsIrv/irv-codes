@@ -1,6 +1,8 @@
 ---
 title: Laravel Echo WebSockets
 description: A composable, and service for managing WebSockets with Laravel Echo.
+authors: ['irvinggomez']
+tags: [laravel, websockets, vue]
 ---
 
 import TagsListInline from '@theme/TagsListInline';
@@ -12,7 +14,7 @@ import TagsListInline from '@theme/TagsListInline';
   <span>🟠 Soft Tested</span>
 </div>
 
-The <span class='bg-teal-500 rounded p-0.5 text-2'>useWebSocket</span> composable and the <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> class together provide a powerful mechanism to manage WebSocket connections in your Vue applications. They support features like:
+The `useWebSocket` composable and the `WebSocketService` class together provide a powerful mechanism to manage WebSocket connections in your Vue applications. They support features like:
 
 - Managing private and public WebSocket channels.
 - Subscribing to and handling real-time events and notifications.
@@ -40,7 +42,7 @@ Make sure you have `laravel-echo` installed.
 
 ### WebSocketService Class
 
-<span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> is a singleton service
+`WebSocketService` is a singleton service
 designed to abstract the complexities of managing WebSocket connections using [Laravel
 Echo](https://laravel.com/docs/11.x/broadcasting). It provides:
 
@@ -56,7 +58,7 @@ Echo](https://laravel.com/docs/11.x/broadcasting). It provides:
 
 ### Usage
 
-Import <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> into your project and use its methods to manage WebSocket interactions.
+Import `WebSocketService` into your project and use its methods to manage WebSocket interactions.
 
 ```typescript
 import WebSocketService from './WebSocketService';
@@ -291,8 +293,8 @@ export default WebSocketService.getInstance();
 
 ### useWebSocket Composable
 
-<span class='bg-teal-500 rounded p-0.5'>useWebSocket</span> is a Vue composable that
-wraps <span class='bg-teal-500 rounded p-0.5'>WebSocketService</span> and provides
+`useWebSocket` is a Vue composable that
+wraps `WebSocketService` and provides
 an intuitive API for managing subscriptions at the component level. It is particularly
 useful for handling dynamic channel updates and multiple event subscriptions.
 
@@ -538,13 +540,13 @@ export function useWebSocket(initialChannel: string, privateChannel = false) {
 ## FAQs
 
 **Q: What happens if the WebSocket connection is lost?**  
-A: Laravel Echo automatically attempts to reconnect. The <span class='bg-teal-500 rounded p-0.5'>useWebSocket</span> composable ensures subscriptions are managed during reconnections.
+A: Laravel Echo automatically attempts to reconnect. `useWebSocket` composable ensures subscriptions are managed during reconnections.
 
-**Q: Can I use <span class='bg-teal-500 rounded p-0.5'>useWebSocket</span> with multiple channels?**  
+**Q: Can I use `useWebSocket` with multiple channels?**  
 A: Yes, but you'll need to create separate instances for each channel.
 
 **Q: How do I handle memory leaks?**  
-A: Always call the <span class='bg-teal-500 rounded p-0.5'>cleanup</span> method when your component is destroyed.
+A: Always call the `cleanup` method when your component is destroyed.
 
 ---
 

@@ -79,6 +79,10 @@ const config: Config = {
   themeConfig: {
     metadata: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      {
+        name: 'og:site_name',
+        content: 'Irving Gomez - Full Stack Engineer',
+      },
     ],
     image: 'img/headshot.png',
     navbar: {
