@@ -78,7 +78,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href='/IrvingGomez-Resume.pdf'
+                  href='/IrvingGomez-FullStackEnginner.pdf'
                   target='_blank'
                   className='text-neutral-light hover:text-blue-400 text-xl transition-transform transform hover:scale-110'
                 >
