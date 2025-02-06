@@ -113,7 +113,7 @@ export const ExtrinsicStudioWorkDetails: WorkDetails = {
 };
 
 export const GamigoWorkDetails: WorkDetails = {
-  title: 'Software Developer',
+  title: 'Backend PHP Developer',
   company: 'Gamigo',
   timePeriod: 'Jun 2015 – Jul 2017',
   roleType: 'Full-Time',
@@ -794,7 +794,7 @@ export const PropfactWorkDetails: WorkDetails = {
 export const PlumbingLegendWorkDetails: WorkDetails = {
   title: 'Full Stack Engineer',
   company: 'Plumbing Legend (Clackamas Community College)',
-  timePeriod: 'Jan 2024 – Present',
+  timePeriod: 'Jan 2024 – Jan 2025',
   roleType: 'Contract',
   description:
     'Developed a multi-platform educational application to track student progress, deliver lectures, and facilitate communication. Integrated an AI assistant for plumbing guidance based on the Oregon Plumbers Specialty Code.',
