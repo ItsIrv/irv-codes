@@ -702,7 +702,7 @@ export const PropfactWorkDetails: WorkDetails = {
   timePeriod: 'March 2024 – Aug 2024',
   roleType: 'Contract',
   description:
-    'Contracted to refactor and rebuild the codebase for a real-estate app similar to Zillow, focusing on establishing a solid foundation for the React Native application.',
+    'Contracted to refactor and rebuild the codebase for a real-estate React Native application. Focused on improving performance and scalability.',
   responsibilities: [
     'Rebuilt and restructured a poorly designed React Native codebase.',
     'Collaborated closely with a C# principal engineer to align the application with the backend systems.',
