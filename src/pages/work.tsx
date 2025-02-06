@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import Layout from '@theme/Layout';
 import WorkBlock from '@site/src/components/Work/WorkBlock';
 import WorkModal from '@site/src/components/Work/WorkModal';
 import { WorkDetails } from '@site/src/models/WorkDetails';
 import workExperience from '@site/src/config/work';
+import PageLayout from '@site/src/components/PageLayout';
 
 /**
  * WorkPage Component
@@ -19,8 +19,8 @@ export default function WorkPage() {
   }, []);
 
   const closeModal = useCallback(() => {
-    setSelectedWork(null);
     setIsModalVisible(false);
+    setTimeout(() => setSelectedWork(null), 300);
   }, []);
 
   const workBlocks = useMemo(
@@ -36,29 +36,24 @@ export default function WorkPage() {
   );
 
   return (
-    <Layout
+    <PageLayout
       title='Work Experience'
       description='Explore my professional work experience in detail.'
+      sectionId='work'
+      heading='Work Experience'
+      headingDescription='My professional work experience.'
     >
-      <main className='container mx-auto my-12'>
-        <section>
-          <h1 className='text-4xl font-bold text-center mb-8 text-white'>
-            Work Experience
-          </h1>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {workBlocks}
+      </div>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {workBlocks}
-          </div>
-        </section>
-
-        {isModalVisible && selectedWork && (
-          <WorkModal
-            isVisible={isModalVisible}
-            onClose={closeModal}
-            work={selectedWork}
-          />
-        )}
-      </main>
-    </Layout>
+      {isModalVisible && selectedWork && (
+        <WorkModal
+          isVisible={isModalVisible}
+          onClose={closeModal}
+          work={selectedWork}
+        />
+      )}
+    </PageLayout>
   );
 }

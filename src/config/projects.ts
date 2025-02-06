@@ -1,8 +1,4 @@
-import Layout from '@theme/Layout';
-import React, { useState } from 'react';
-import WorkBlock from '../components/Work/WorkBlock';
 import { WorkDetails } from '../models/WorkDetails';
-import WorkModal from '../components/Work/WorkModal';
 
 export const BudgetFinderWorkDetails: WorkDetails = {
   title: 'Budget Finder',
@@ -60,18 +56,13 @@ export const BudgetFinderWorkDetails: WorkDetails = {
       solution: 'Integrating WebSockets for seamless real-time notifications.',
     },
   ],
-  // resources: [
-  //   {
-  //     type: 'liveProject',
-  //     label: 'Budget Finder Website',
-  //     url: 'https://budgetfinder.app',
-  //   },
-  //   {
-  //     type: 'liveProject',
-  //     label: 'Budget Finder Help',
-  //     url: 'https://help.budgetfinder.app/',
-  //   },
-  // ],
+  resources: [
+    {
+      type: 'liveProject',
+      label: 'Budget Finder Website',
+      url: 'https://budgetfinder.app',
+    },
+  ],
 };
 
 export const MabraiDetails: WorkDetails = {
@@ -177,65 +168,4 @@ const personalExperience: WorkDetails[] = [
   MabraiDetails,
 ];
 
-/**
- * PersonalsPage Component
- */
-export default function PersonalsPage() {
-  const [selectedWork, setSelectedWork] = useState(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const openModal = (work: WorkDetails) => {
-    setSelectedWork(work);
-    setIsModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setIsModalVisible(false);
-    setTimeout(() => setSelectedWork(null), 300);
-  };
-
-  return (
-    <Layout
-      title='About'
-      description='Learn more about me.'
-    >
-      <main className='container mx-auto mt-12'>
-        <section>
-          <h1 className='text-4xl text-center md:text-5xl font-bold font-serif mb-6'>
-            Personals
-          </h1>
-
-          <div className='bg-black/20 rounded p-6 max-w-xl mx-auto mb-12'>
-            <p className='text-lg md:text-xl font-body text-center text-neutral-light'>
-              Beyond the code, explore the projects and passions that define me.
-              From personal endeavors to creative pursuits, this page offers a
-              glimpse into the unique interests that shape my journey as a
-              developer and an individual.
-            </p>
-          </div>
-
-          <div className='flex flex-wrap justify-center gap-8'>
-            {personalExperience.map((work, index) => (
-              <div
-                key={index}
-                className='w-full sm:w-1/2 lg:w-1/3'
-              >
-                <WorkBlock
-                  work={work}
-                  onClick={openModal}
-                  className='h-64'
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <WorkModal
-          isVisible={isModalVisible}
-          onClose={closeModal}
-          work={selectedWork}
-        />
-      </main>
-    </Layout>
-  );
-}
+export default personalExperience;

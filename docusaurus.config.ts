@@ -95,7 +95,7 @@ const config: Config = {
         { to: '/', label: 'Home', position: 'left', exact: true },
         { to: '/skills', label: 'Skills', position: 'left' },
         { to: '/work', label: 'Work', position: 'left' },
-        { to: '/personals', label: 'Personals', position: 'left' },
+        { to: '/projects', label: 'Projects', position: 'left' },
         { to: '/code', label: 'Code', position: 'left' },
 
         { to: '/contact', label: 'Contact', position: 'right' },
