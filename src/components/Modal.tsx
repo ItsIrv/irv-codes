@@ -20,7 +20,7 @@ export default function Modal({
   useEffect(() => {
     if (isVisible) {
       setRendered(true);
-      requestAnimationFrame(() => setAnimate(true));
+      setAnimate(true);
     } else {
       setAnimate(false);
 
