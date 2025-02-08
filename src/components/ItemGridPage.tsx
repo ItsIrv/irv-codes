@@ -8,6 +8,7 @@ interface ItemGridPageProps<T> {
   heading: string;
   headingDescription?: string;
   items: T[];
+  dense?: boolean;
   renderItem: (item: T, openModal: (item: T) => void) => React.ReactNode;
   renderModal: (
     item: T | null,
@@ -29,6 +30,7 @@ export default function ItemGridPage<T>({
   items,
   renderItem,
   renderModal,
+  dense = false,
 }: ItemGridPageProps<T>) {
   const [selectedItem, setSelectedItem] = useState<T | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -56,9 +58,14 @@ export default function ItemGridPage<T>({
       heading={heading}
       headingDescription={headingDescription}
     >
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ${
+          dense ? 'xl:grid-cols-4' : ''
+        }`}
+      >
         {itemBlocks}
       </div>
+
       {renderModal(selectedItem, isModalVisible, closeModal)}
     </PageLayout>
   );

@@ -14,6 +14,7 @@ export default function SkillsPage() {
       heading='Skills'
       headingDescription='My technical expertise and professional skills.'
       items={skills}
+      dense={true}
       renderItem={(skill, openModal) => (
         <SkillBlock
           key={skill.name}
@@ -21,15 +22,13 @@ export default function SkillsPage() {
           onClick={() => openModal(skill)}
         />
       )}
-      renderModal={(selectedSkill, isVisible, closeModal) =>
-        selectedSkill && (
-          <SkillModal
-            isVisible={isVisible}
-            onClose={closeModal}
-            skill={selectedSkill}
-          />
-        )
-      }
+      renderModal={(selectedSkill, isVisible, closeModal) => (
+        <SkillModal
+          isVisible={isVisible}
+          onClose={closeModal}
+          skill={selectedSkill}
+        />
+      )}
     />
   );
 }

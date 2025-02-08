@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       items={personalExperience}
       renderItem={(work, openModal) => (
         <WorkBlock
-          key={work.company}
+          key={work.title}
           work={work}
           onClick={() => openModal(work)}
         />

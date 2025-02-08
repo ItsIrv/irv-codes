@@ -21,15 +21,13 @@ export default function WorkPage() {
           onClick={() => openModal(work)}
         />
       )}
-      renderModal={(selectedWork, isVisible, closeModal) =>
-        selectedWork && (
-          <WorkModal
-            isVisible={isVisible}
-            onClose={closeModal}
-            work={selectedWork}
-          />
-        )
-      }
+      renderModal={(selectedWork, isVisible, closeModal) => (
+        <WorkModal
+          isVisible={isVisible}
+          onClose={closeModal}
+          work={selectedWork}
+        />
+      )}
     />
   );
 }
