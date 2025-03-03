@@ -1,28 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/pagination';
+import workExperience from '@site/src/config/work';
 import WorkBlock from '@site/src/components/Work/WorkBlock';
 import WorkModal from '@site/src/components/Work/WorkModal';
-import workExperience from '@site/src/config/work';
 import { WorkDetails } from '@site/src/models/WorkDetails';
-import ItemGrid from '../ItemGrid';
 
 export default function WorkItems() {
+  const [selectedWork, setSelectedWork] = useState<WorkDetails | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const openModal = (work: WorkDetails) => {
+    setSelectedWork(work);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setSelectedWork(null);
+    setIsModalVisible(false);
+  };
+
   return (
-    <ItemGrid<WorkDetails>
-      items={workExperience}
-      renderItem={(work, openModal) => (
-        <WorkBlock
-          key={work.company}
-          work={work}
-          onClick={() => openModal(work)}
-        />
-      )}
-      renderModal={(selectedWork, isVisible, closeModal) => (
-        <WorkModal
-          isVisible={isVisible}
-          onClose={closeModal}
-          work={selectedWork}
-        />
-      )}
-    />
+    <>
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        spaceBetween={30}
+        slidesPerView={1}
+        slidesPerGroup={1}
+        speed={700}
+        pagination={{
+          clickable: true,
+          el: '.work-pagination',
+        }}
+        navigation
+        breakpoints={{
+          500: { slidesPerView: 2, slidesPerGroup: 2 },
+          768: { slidesPerView: 3, slidesPerGroup: 3 },
+        }}
+      >
+        {workExperience.map((work, index) => (
+          <SwiperSlide key={index}>
+            <WorkBlock
+              work={work}
+              onClick={() => openModal(work)}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Pagination Outside Swiper */}
+      <div className='work-pagination custom-pagination pt-4 text-center'></div>
+
+      {/* Modal */}
+      <WorkModal
+        isVisible={isModalVisible}
+        onClose={closeModal}
+        work={selectedWork}
+      />
+    </>
   );
 }

@@ -33,7 +33,11 @@ export default function SkillItems() {
         loop={true}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         speed={600}
-        pagination={{ clickable: true, dynamicBullets: true }}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+          el: '.skill-pagination',
+        }}
         navigation
         breakpoints={{
           500: { slidesPerView: 3, slidesPerGroup: 3, pagination: false },
@@ -49,7 +53,6 @@ export default function SkillItems() {
             autoplay: { delay: 5000 },
           },
         }}
-        className='w-full mx-auto'
       >
         {skills.map((skill, index) => (
           <SwiperSlide key={index}>
@@ -60,6 +63,9 @@ export default function SkillItems() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Pagination Outside Swiper */}
+      <div className='skill-pagination custom-pagination pt-4 mx-auto'></div>
 
       {/* Modal */}
       <SkillModal

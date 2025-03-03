@@ -104,7 +104,7 @@ const config: Config = {
       ],
     },
     footer: {
-      copyright: `Copyright © ${new Date().getFullYear()} Irving Gomez. I used <a href="/credits" target="_blank" class="underline" rel="noopener noreferrer">these tools</a> to create this website.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Irving Gomez. <br /> I used <a href="/credits" target="_blank" class="underline" rel="noopener noreferrer">these tools</a> to create my portfolio.`,
     },
     prism: {
       theme: prismThemes.github,

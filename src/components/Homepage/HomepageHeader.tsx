@@ -1,5 +1,5 @@
-import HeaderBackground from './HomepageHeader/HeaderBackground';
-import HeaderHeading from './HomepageHeader/HeaderHeading';
+import HeaderBackground from './HeaderBackground';
+import HeaderHeading from './HeaderHeading';
 
 /**
  * HomepageHeader Component

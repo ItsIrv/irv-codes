@@ -13,6 +13,7 @@ export default function ProjectItems() {
         <WorkBlock
           key={work.title}
           work={work}
+          className='!h-64'
           onClick={() => openModal(work)}
         />
       )}

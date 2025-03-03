@@ -298,3 +298,15 @@ article table {
 .alert--warning {
   @apply bg-amber-800/40;
 }
+
+.custom-pagination .swiper-pagination-bullet {
+  @apply w-4 h-4 bg-gray-500 dark:bg-gray-300 opacity-75 transition-all duration-300;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  @apply w-6 h-6 bg-primary opacity-100;
+}
+
+.footer {
+  height: 100px !important;
+}
