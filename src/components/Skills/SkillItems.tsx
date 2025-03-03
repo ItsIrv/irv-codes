@@ -35,7 +35,6 @@ export default function SkillItems() {
         speed={600}
         pagination={{
           clickable: true,
-          dynamicBullets: true,
           el: '.skill-pagination',
         }}
         navigation
@@ -58,14 +57,14 @@ export default function SkillItems() {
           <SwiperSlide key={index}>
             <SkillBlock
               skill={skill}
-              onClick={() => openModal(skill)} // Pass correct reference
+              onClick={() => openModal(skill)}
             />
           </SwiperSlide>
         ))}
       </Swiper>
 
       {/* Pagination Outside Swiper */}
-      <div className='skill-pagination custom-pagination pt-4 mx-auto'></div>
+      <div className='skill-pagination custom-pagination pt-4 text-center'></div>
 
       {/* Modal */}
       <SkillModal

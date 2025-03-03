@@ -4,7 +4,7 @@ import React from 'react';
 interface WorkBlockProps {
   work: WorkDetails;
   onClick: (work: WorkDetails) => void;
-  className?: string; // Add an optional className prop
+  className?: string;
 }
 
 /**
@@ -18,7 +18,7 @@ const WorkBlock: React.FC<WorkBlockProps> = ({
 }) => {
   return (
     <div
-      className={`teal-hover h-72 group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg hover:scale-105 transition-transform transform cursor-pointer ${className}`}
+      className={`teal-hover h-72 group relative bg-black/30 dark:bg-black/30 rounded-lg shadow-md p-6 hover:shadow-lg transition-transform transform cursor-pointer ${className}`}
       onClick={() => onClick(work)}
     >
       {/* Title */}

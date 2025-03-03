@@ -13,7 +13,44 @@ export default function Home(): JSX.Element {
       sectionId='home'
     >
       <div className='space-y-20'>
-        <HeaderHeading />
+        <div className='space-y-8'>
+          <HeaderHeading />
+
+          <div className='text-center'>
+            <div className='flex justify-center space-x-6'>
+              <a
+                href='https://linkedin.com/in/itsirv'
+                target='_blank'
+                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href='https://github.com/itsirv'
+                target='_blank'
+                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
+              >
+                GitHub
+              </a>
+
+              <a
+                href='/IrvingGomez-FullStackEnginner.pdf'
+                target='_blank'
+                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
+              >
+                Resume
+              </a>
+
+              <a
+                href='mailto:gomirv.work@gmail.com?subject=Contact%20Request&body=Hi%20Irving%2C%0A%0AI%20would%20like%20to%20reach%20out%20regarding...'
+                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
+              >
+                Send Email
+              </a>
+            </div>
+          </div>
+        </div>
 
         <PageSection
           sectionId='skills'
