@@ -6,7 +6,7 @@ import HeaderTyping from './HeaderTyping';
  */
 export default function HeaderHeading() {
   return (
-    <div className='z-10 max-w-xl w-[95%] text-center px-4 shadow-lg bg-black/50 backdrop-blur-md rounded-lg p-8'>
+    <div className='mx-auto max-w-md'>
       <img
         src='/img/me.jpg'
         alt='Its a -- meeee'

@@ -1,22 +1,17 @@
 import React from 'react';
 import WorkBlock from '@site/src/components/Work/WorkBlock';
 import WorkModal from '@site/src/components/Work/WorkModal';
-import workExperience from '@site/src/config/work';
-import ItemGridPage from '@site/src/components/ItemGridPage';
+import personalExperience from '@site/src/config/projects';
 import { WorkDetails } from '@site/src/models/WorkDetails';
+import ItemGrid from './ItemGrid';
 
-export default function WorkPage() {
+export default function ProjectItems() {
   return (
-    <ItemGridPage<WorkDetails>
-      title='Work Experience'
-      description='Explore my professional work experience in detail.'
-      sectionId='work'
-      heading='Work Experience'
-      headingDescription='My professional work experience.'
-      items={workExperience}
+    <ItemGrid<WorkDetails>
+      items={personalExperience}
       renderItem={(work, openModal) => (
         <WorkBlock
-          key={work.company}
+          key={work.title}
           work={work}
           onClick={() => openModal(work)}
         />

@@ -12,7 +12,7 @@ interface SkillBlockProps {
 const SkillBlock: React.FC<SkillBlockProps> = ({ skill, onClick }) => {
   return (
     <div
-      className='teal-hover group relative flex flex-col items-center justify-center bg-black/10 dark:bg-black/20 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg cursor-pointer'
+      className='teal-hover group relative flex flex-col items-center justify-center bg-black/10 dark:bg-black/20 p-6 transition-transform transform hover:shadow-lg cursor-pointer'
       onClick={() => onClick(skill)}
     >
       <img

@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import PageSection from './PageSection';
 
 interface PageLayoutProps {
   title: string; // SEO title (Docusaurus)
@@ -30,25 +31,15 @@ export default function PageLayout({
       description={description}
     >
       <main className='container mx-auto mt-12'>
-        <section
-          id={sectionId}
-          className={sectionStyle}
+        <PageSection
+          sectionId={sectionId}
+          sectionStyle={sectionStyle}
+          heading={heading}
+          headingDescription={headingDescription}
         >
-          {/* Render heading and description only if provided */}
-          {heading && (
-            <h1 className='text-4xl md:text-5xl font-bold text-center mb-8 text-white'>
-              {heading}
-            </h1>
-          )}
-          {headingDescription && (
-            <p className='text-lg md:text-xl max-w-xl mx-auto mb-6 text-center text-neutral-light'>
-              {headingDescription}
-            </p>
-          )}
-
           {/* Page-specific content */}
           <div className='mt-6'>{children}</div>
-        </section>
+        </PageSection>
       </main>
     </Layout>
   );

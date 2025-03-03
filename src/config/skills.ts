@@ -996,7 +996,7 @@ export const MySQLDetails: SkillDetails = {
 };
 
 export const AWSDetails: SkillDetails = {
-  name: 'Amazon Web Services (AWS)',
+  name: 'AWS',
   icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
   description:
     'AWS is a cloud computing platform that I’ve used to deploy, manage, and scale web applications. Its robust services have been essential for hosting, storage, and serverless solutions.',
@@ -1962,7 +1962,7 @@ export const KubernetesDetails: SkillDetails = {
 };
 
 export const TailwindCSSDetails: SkillDetails = {
-  name: 'Tailwind CSS',
+  name: 'Tailwind',
   icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/tailwindcss/tailwindcss-plain.svg',
   description:
     'Tailwind CSS has been a key tool for crafting modern, responsive user interfaces with precision and consistency across projects.',
@@ -2351,90 +2351,6 @@ export const MentorshipDetails: SkillDetails = {
     ],
   },
 };
-
-export const TDDDetails: SkillDetails = {
-  name: 'Test-Driven Development (TDD)',
-  icon: '/img/favicon-96.png',
-  description:
-    'Test-Driven Development has been a key practice in my work, ensuring robust, maintainable code by writing comprehensive tests before implementation.',
-  highlights: [
-    'Reduced bugs and deployment risks by adhering to TDD principles.',
-    'Improved test coverage through unit, integration, and end-to-end tests.',
-    'Enhanced code reliability by addressing edge cases during the development cycle.',
-    'Used automated testing frameworks to streamline workflows.',
-  ],
-  experiences: [
-    {
-      company: 'RXMG',
-      role: 'Full Stack Engineer',
-      period: 'Mar 2022 – Jan 2024',
-      summary:
-        'Followed TDD practices to develop APIs and ensure reliability in high-volume marketing platforms.',
-      outcomes: [
-        'Improved system reliability with 90%+ test coverage across APIs and core services.',
-        'Reduced production bugs by catching issues during development.',
-      ],
-    },
-    {
-      company: 'Credit Saint',
-      role: 'Full Stack Engineer',
-      period: 'Dec 2020 – Feb 2022',
-      summary:
-        'Applied TDD to refactor backend services for financial dashboards.',
-      outcomes: [
-        'Enhanced maintainability and scalability of backend services.',
-        'Achieved consistent functionality with rigorous unit and integration tests.',
-      ],
-    },
-  ],
-  tools: ['Jest', 'Mocha', 'PHPUnit', 'Cypress'],
-  keywords: [
-    'Unit testing',
-    'Integration testing',
-    'End-to-end testing',
-    'Bug prevention',
-    'Automation',
-  ],
-  proficiencyLevel: 'Advanced',
-  industryApplications: [
-    'Marketing Platforms (RXMG)',
-    'Financial Dashboards (Credit Saint)',
-  ],
-  challengesAndSolutions: [
-    {
-      challenge: 'Ensuring high test coverage in complex applications.',
-      solution:
-        'Wrote unit and integration tests incrementally, focusing on edge cases and core functionality.',
-    },
-    {
-      challenge: 'Reducing regression bugs during frequent deployments.',
-      solution:
-        'Implemented automated end-to-end tests to validate functionality before every release.',
-    },
-  ],
-  projects: [
-    {
-      name: 'API Testing for RXMG',
-      description:
-        'Developed rigorous test suites for API endpoints using Jest and Mocha.',
-      role: 'Collaborative Developer',
-      impact: [
-        'Improved API reliability and reduced bug incidence in production.',
-      ],
-    },
-  ],
-  learningPath: {
-    resources: [
-      'Test-Driven Development by Example (book)',
-      'Clean Code (book)',
-    ],
-    milestones: [
-      'Achieved 90%+ test coverage in large-scale applications.',
-      'Implemented automated end-to-end tests for critical systems.',
-    ],
-  },
-};
-
 export const CodeReviewsDetails: SkillDetails = {
   name: 'Code Reviews',
   icon: '/img/favicon-96.png',
@@ -2594,7 +2510,7 @@ export const PairProgrammingDetails: SkillDetails = {
 };
 
 export const CICDPipelinesDetails: SkillDetails = {
-  name: 'CI/CD Pipelines',
+  name: 'CI & CD',
   icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/gitlab/gitlab-original.svg',
   description:
     'CI/CD pipelines have been integral to my workflow, ensuring automated testing, integration, and deployment processes that maintain high-quality standards.',
@@ -2674,7 +2590,7 @@ export const CICDPipelinesDetails: SkillDetails = {
 };
 
 export const MonitoringLoggingDetails: SkillDetails = {
-  name: 'Monitoring & Logging',
+  name: 'Obervability',
   icon: '/img/favicon-96.png',
   description:
     'Monitoring and logging tools have been essential in maintaining system reliability, identifying issues, and optimizing application performance.',
@@ -2869,7 +2785,7 @@ export const LeadershipDetails: SkillDetails = {
 };
 
 export const GCPDetails: SkillDetails = {
-  name: 'Google Cloud Platform (GCP)',
+  name: 'GCP',
   icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/googlecloud/googlecloud-original.svg',
   description:
     'Google Cloud Platform has been a key tool for deploying, managing, and scaling applications with serverless functions and efficient storage solutions.',
@@ -2937,7 +2853,7 @@ export const GCPDetails: SkillDetails = {
 };
 
 export const AzureDetails: SkillDetails = {
-  name: 'Microsoft Azure',
+  name: 'Azure',
   icon: 'https://cdn.jsdelivr.net/npm/devicon/icons/azure/azure-original.svg',
   description:
     'Microsoft Azure has been instrumental in managing cloud infrastructure, deploying scalable applications, and ensuring secure operations for various projects.',
@@ -3164,7 +3080,6 @@ export const skills: SkillDetails[] = [
   // Specialized Tools & Techniques
   SwaggerDetails,
   FigmaDetails,
-  TDDDetails,
 ];
 
 export default skills;

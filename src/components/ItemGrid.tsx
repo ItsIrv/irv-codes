@@ -1,14 +1,8 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import PageLayout from '@site/src/components/PageLayout';
-import ItemGrid from './ItemGrid';
 
-interface ItemGridPageProps<T> {
-  title: string;
-  description: string;
-  sectionId: string;
-  heading: string;
-  headingDescription?: string;
+interface ItemGridProps<T> {
   items: T[];
+  className?: string;
   renderItem: (item: T, openModal: (item: T) => void) => React.ReactNode;
   renderModal: (
     item: T | null,
@@ -21,16 +15,12 @@ interface ItemGridPageProps<T> {
  * Generic Grid Page Component
  * Handles displaying a grid of items and opening a modal for details.
  */
-export default function ItemGridPage<T>({
-  title,
-  description,
-  sectionId,
-  heading,
-  headingDescription,
+export default function ItemGrid<T>({
   items,
+  className,
   renderItem,
   renderModal,
-}: ItemGridPageProps<T>) {
+}: ItemGridProps<T>) {
   const [selectedItem, setSelectedItem] = useState<T | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -50,18 +40,14 @@ export default function ItemGridPage<T>({
   );
 
   return (
-    <PageLayout
-      title={title}
-      description={description}
-      sectionId={sectionId}
-      heading={heading}
-      headingDescription={headingDescription}
-    >
-      <ItemGrid
-        items={items}
-        renderItem={renderItem}
-        renderModal={renderModal}
-      />
-    </PageLayout>
+    <div>
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ${className}`}
+      >
+        {itemBlocks}
+      </div>
+
+      {renderModal(selectedItem, isModalVisible, closeModal)}
+    </div>
   );
 }
