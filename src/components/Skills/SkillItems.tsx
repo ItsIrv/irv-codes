@@ -1,29 +1,72 @@
-import React from 'react';
-import SkillBlock from '@site/src/components/Skills/SkillBlock';
-import SkillModal from '@site/src/components/Skills/SkillModal';
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/pagination';
 import skills from '@site/src/config/skills';
-import { SkillDetails } from '@site/src/models/SkillDetails';
-import ItemGrid from '../ItemGrid';
+import SkillBlock from './SkillBlock';
+import SkillModal from './SkillModal';
 
 export default function SkillItems() {
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const openModal = (skill) => {
+    setSelectedSkill(skill);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setSelectedSkill(null);
+    setIsModalVisible(false);
+  };
+
   return (
-    <ItemGrid<SkillDetails>
-      items={skills}
-      className='grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-0 !rounded-none border-0'
-      renderItem={(skill, openModal) => (
-        <SkillBlock
-          key={skill.name}
-          skill={skill}
-          onClick={() => openModal(skill)}
-        />
-      )}
-      renderModal={(selectedSkill, isVisible, closeModal) => (
-        <SkillModal
-          isVisible={isVisible}
-          onClose={closeModal}
-          skill={selectedSkill}
-        />
-      )}
-    />
+    <>
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        spaceBetween={0}
+        slidesPerView={2}
+        slidesPerGroup={2}
+        loopAddBlankSlides={false}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        speed={600}
+        pagination={{ clickable: true, dynamicBullets: true }}
+        navigation
+        breakpoints={{
+          500: { slidesPerView: 3, slidesPerGroup: 3, pagination: false },
+          640: { slidesPerView: 4, slidesPerGroup: 4 },
+          850: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+            autoplay: { delay: 5000 },
+          },
+          1024: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+            autoplay: { delay: 5000 },
+          },
+        }}
+        className='w-full mx-auto'
+      >
+        {skills.map((skill, index) => (
+          <SwiperSlide key={index}>
+            <SkillBlock
+              skill={skill}
+              onClick={() => openModal(skill)} // Pass correct reference
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Modal */}
+      <SkillModal
+        isVisible={isModalVisible}
+        onClose={closeModal}
+        skill={selectedSkill}
+      />
+    </>
   );
 }

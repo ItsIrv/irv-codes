@@ -3034,26 +3034,23 @@ export const skills: SkillDetails[] = [
   // Primary Programming & Framework Skills
   PHPDetails,
   LaravelDetails,
+  VueJSDetails,
   JavaScriptDetails,
   TypeScriptDetails,
   NodeJSDetails,
-  VueJSDetails,
-  ReactDetails,
   ReactNativeDetails,
   HTML5Details,
+  QuasarVueDetails,
+  NuxtJSDetails,
+  TailwindCSSDetails,
+  CSSDetails,
+  SassDetails,
 
   // Database & Caching
   MySQLDetails,
   PostgreSQLDetails,
   RedisDetails,
   MongoDBDetails,
-
-  // Frontend Frameworks & Styling
-  QuasarVueDetails,
-  NuxtJSDetails,
-  TailwindCSSDetails,
-  CSSDetails,
-  SassDetails,
 
   // Cloud Platforms & Infrastructure
   AWSDetails,
@@ -3068,14 +3065,14 @@ export const skills: SkillDetails[] = [
 
   // Real-Time & Advanced Features
   WebSocketsDetails,
-  MonitoringLoggingDetails,
+  // MonitoringLoggingDetails,
 
   // Collaboration & Methodologies
-  AgileDetails,
-  MentorshipDetails,
-  LeadershipDetails,
-  CodeReviewsDetails,
-  PairProgrammingDetails,
+  // AgileDetails,
+  // MentorshipDetails,
+  // LeadershipDetails,
+  // CodeReviewsDetails,
+  // PairProgrammingDetails,
 
   // Specialized Tools & Techniques
   SwaggerDetails,

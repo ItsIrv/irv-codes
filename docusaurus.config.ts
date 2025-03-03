@@ -93,10 +93,7 @@ const config: Config = {
       },
       items: [
         { to: '/', label: 'Home', position: 'left', exact: true },
-        { to: '/contact', label: 'Contact', position: 'left' },
-        { to: '/about', label: 'About', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/credits', label: 'Credits', position: 'right' },
         // {
         //   label: 'Extra',
         //   position: 'right',
@@ -107,8 +104,7 @@ const config: Config = {
       ],
     },
     footer: {
-      links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} Irving Gomez.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Irving Gomez. I used <a href="/credits" target="_blank" class="underline" rel="noopener noreferrer">these tools</a> to create this website.`,
     },
     prism: {
       theme: prismThemes.github,

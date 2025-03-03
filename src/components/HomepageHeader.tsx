@@ -1,5 +1,4 @@
 import HeaderBackground from './HomepageHeader/HeaderBackground';
-import HeaderButton from './HomepageHeader/HeaderButton';
 import HeaderHeading from './HomepageHeader/HeaderHeading';
 
 /**
