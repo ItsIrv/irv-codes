@@ -52,7 +52,7 @@ export default function WorkItems() {
       </Swiper>
 
       {/* Pagination Outside Swiper */}
-      <div className='work-pagination custom-pagination pt-4 text-center'></div>
+      <div className='work-pagination custom-pagination pt-4 text-center h-10'></div>
 
       {/* Modal */}
       <WorkModal

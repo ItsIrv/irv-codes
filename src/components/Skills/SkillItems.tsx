@@ -26,12 +26,9 @@ export default function SkillItems() {
     <>
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
-        spaceBetween={0}
+        spaceBetween={10}
         slidesPerView={2}
         slidesPerGroup={2}
-        loopAddBlankSlides={false}
-        loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
         speed={600}
         pagination={{
           clickable: true,
@@ -39,7 +36,12 @@ export default function SkillItems() {
         }}
         navigation
         breakpoints={{
-          500: { slidesPerView: 3, slidesPerGroup: 3, pagination: false },
+          320: {
+            direction: 'vertical',
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+          500: { direction: 'horizontal', slidesPerView: 3, slidesPerGroup: 3 },
           640: { slidesPerView: 4, slidesPerGroup: 4 },
           850: {
             slidesPerView: 5,
@@ -52,6 +54,7 @@ export default function SkillItems() {
             autoplay: { delay: 5000 },
           },
         }}
+        className='w-full mx-auto'
       >
         {skills.map((skill, index) => (
           <SwiperSlide key={index}>
@@ -64,7 +67,7 @@ export default function SkillItems() {
       </Swiper>
 
       {/* Pagination Outside Swiper */}
-      <div className='skill-pagination custom-pagination pt-4 text-center'></div>
+      <div className='skill-pagination custom-pagination pt-4 text-center h-10'></div>
 
       {/* Modal */}
       <SkillModal
