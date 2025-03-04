@@ -23,6 +23,16 @@ export default function SkillItems() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const openModal = (skill) => {
+    setSelectedSkill(skill);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setSelectedSkill(null);
+    setIsModalVisible(false);
+  };
+
   return (
     <>
       <Swiper
@@ -51,7 +61,7 @@ export default function SkillItems() {
             autoplay: { delay: 5000 },
           },
         }}
-        className='w-full mx-auto h-[400px] sm:h-auto'
+        className='w-full mx-auto h-[400px]'
       >
         {isVertical
           ? skills
@@ -67,7 +77,7 @@ export default function SkillItems() {
                       <SkillBlock
                         key={skill.name}
                         skill={skill}
-                        onClick={() => setSelectedSkill(skill)}
+                        onClick={() => openModal(skill)}
                       />
                     ))}
                   </div>
@@ -77,7 +87,7 @@ export default function SkillItems() {
               <SwiperSlide key={index}>
                 <SkillBlock
                   skill={skill}
-                  onClick={() => setSelectedSkill(skill)}
+                  onClick={() => openModal(skill)}
                 />
               </SwiperSlide>
             ))}
@@ -89,7 +99,7 @@ export default function SkillItems() {
       {/* Modal */}
       <SkillModal
         isVisible={isModalVisible}
-        onClose={() => setIsModalVisible(false)}
+        onClose={closeModal}
         skill={selectedSkill}
       />
     </>
