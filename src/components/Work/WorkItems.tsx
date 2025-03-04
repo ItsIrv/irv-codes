@@ -37,14 +37,22 @@ export default function WorkItems() {
         }}
         navigation
         breakpoints={{
+          320: {
+            direction: 'vertical',
+            spaceBetween: 1,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
           500: { slidesPerView: 2, slidesPerGroup: 2 },
           768: { slidesPerView: 3, slidesPerGroup: 3 },
         }}
+        className='w-full mx-auto h-[350px] sm:h-auto'
       >
         {workExperience.map((work, index) => (
           <SwiperSlide key={index}>
             <WorkBlock
               work={work}
+              className='h-auto sm:h-72'
               onClick={() => openModal(work)}
             />
           </SwiperSlide>
