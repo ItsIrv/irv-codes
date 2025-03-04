@@ -38,7 +38,7 @@ export default function SkillItems() {
         breakpoints={{
           320: {
             direction: 'vertical',
-            slidesPerView: 4,
+            slidesPerView: 2,
             slidesPerGroup: 4,
           },
           500: { direction: 'horizontal', slidesPerView: 3, slidesPerGroup: 3 },
@@ -54,7 +54,7 @@ export default function SkillItems() {
             autoplay: { delay: 5000 },
           },
         }}
-        className='w-full mx-auto'
+        className='w-full mx-auto h-[400px]'
       >
         {skills.map((skill, index) => (
           <SwiperSlide key={index}>

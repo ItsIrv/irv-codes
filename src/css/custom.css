@@ -288,9 +288,11 @@ article table {
 .alert--info {
   @apply bg-teal-500/40;
 }
+
 .alert--success {
   @apply bg-green-700/40;
 }
+
 .alert--danger {
   @apply bg-rose-600/40;
 }
@@ -304,7 +306,11 @@ article table {
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
-  @apply w-6 h-6 bg-primary opacity-100;
+  @apply w-6 h-6 bg-blue-700 bg-opacity-80 opacity-100;
+}
+
+.swiper-pagination-vertical {
+  @apply flex mt-8 gap-5 items-center justify-center;
 }
 
 .footer {

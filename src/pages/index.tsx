@@ -4,6 +4,7 @@ import PageSection from '../components/PageSection';
 import SkillItems from '../components/Skills/SkillItems';
 import ProjectItems from '../components/ProjectItems';
 import HeaderHeading from '../components/Homepage/HeaderHeading';
+import { ContactLinks } from '../components/ContactLinks';
 
 export default function Home(): JSX.Element {
   return (
@@ -17,38 +18,7 @@ export default function Home(): JSX.Element {
           <HeaderHeading />
 
           <div className='text-center'>
-            <div className='flex justify-center space-x-6'>
-              <a
-                href='https://linkedin.com/in/itsirv'
-                target='_blank'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                LinkedIn
-              </a>
-
-              <a
-                href='https://github.com/itsirv'
-                target='_blank'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                GitHub
-              </a>
-
-              <a
-                href='/IrvingGomez-FullStackEnginner.pdf'
-                target='_blank'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                Resume
-              </a>
-
-              <a
-                href='mailto:gomirv.work@gmail.com?subject=Contact%20Request&body=Hi%20Irving%2C%0A%0AI%20would%20like%20to%20reach%20out%20regarding...'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                Send Email
-              </a>
-            </div>
+            <ContactLinks />
           </div>
         </div>
 
@@ -68,7 +38,7 @@ export default function Home(): JSX.Element {
 
         <PageSection
           sectionId='projects'
-          heading='Projects'
+          heading='Personal Projects'
         >
           <ProjectItems />
         </PageSection>
@@ -79,38 +49,7 @@ export default function Home(): JSX.Element {
         >
           {/* Social Links */}
           <div className='mt-12 text-center'>
-            <div className='flex justify-center space-x-6'>
-              <a
-                href='https://linkedin.com/in/itsirv'
-                target='_blank'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                LinkedIn
-              </a>
-
-              <a
-                href='https://github.com/itsirv'
-                target='_blank'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                GitHub
-              </a>
-
-              <a
-                href='/IrvingGomez-FullStackEnginner.pdf'
-                target='_blank'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                Resume
-              </a>
-
-              <a
-                href='mailto:gomirv.work@gmail.com?subject=Contact%20Request&body=Hi%20Irving%2C%0A%0AI%20would%20like%20to%20reach%20out%20regarding...'
-                className='text-neutral-light text-xl transition-transform transform hover:scale-110'
-              >
-                Send Email
-              </a>
-            </div>
+            <ContactLinks />
           </div>
         </PageSection>
       </div>
