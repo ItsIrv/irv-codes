@@ -37,12 +37,6 @@ export default function WorkItems() {
         }}
         navigation
         breakpoints={{
-          320: {
-            direction: 'vertical',
-            spaceBetween: 1,
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-          },
           500: { slidesPerView: 2, slidesPerGroup: 2 },
           768: { slidesPerView: 3, slidesPerGroup: 3 },
         }}
