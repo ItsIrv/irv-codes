@@ -61,7 +61,7 @@ export default function SkillItems() {
             autoplay: { delay: 5000 },
           },
         }}
-        className='w-full mx-auto h-[400px]'
+        className='w-full mx-auto h-[150px]'
       >
         {isVertical
           ? skills
